@@ -1,16 +1,77 @@
-# React + Vite
+# Zentrion Skill OS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Zentrion Skill OS is an engineering skill development platform designed to help students learn, practice, build projects, track their skills, and prepare for industry.
 
-Currently, two official plugins are available:
+> Learn → Practice → Prove → Improve → Get Hired
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## About
 
-## React Compiler
+Zentrion Skill OS provides a multi-domain learning and practice experience for engineering students.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The platform brings together:
 
-## Expanding the ESLint configuration
+- Skill-based learning
+- Domain-specific practice
+- Real-world engineering problems
+- Project-based learning
+- Skill progress tracking
+- Career readiness
+- AI-assisted learning experiences
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Supported Domains
+
+- Computer Science
+- Mechanical Engineering
+- Electronics & Communication Engineering
+- Civil Engineering
+
+## Key Features
+
+### Practice Problems
+
+Solve engineering-focused challenges based on different domains and difficulty levels.
+
+### Learning
+
+Explore structured learning experiences designed around practical skill development.
+
+### Skill Progress
+
+Understand strengths, identify skill gaps, and discover areas that need improvement.
+
+### Real-World Projects
+
+Apply technical knowledge by working on project-based challenges.
+
+### AI Mentor
+
+A product concept for providing personalized learning guidance and recommendations.
+
+### Career Readiness
+
+Connect learning and skill development with industry-oriented preparation.
+
+## Tech Stack
+
+- React
+- Vite
+- JavaScript
+- React Router
+- HTML5
+- CSS3
+- Git & GitHub
+
+## Project Structure
+
+```text
+zentrion-skill-os/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── App.jsx
+│   └── main.jsx
+├── public/
+├── index.html
+├── package.json
+└── README.md
