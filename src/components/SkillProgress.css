@@ -1,0 +1,414 @@
+.skill-progress-section {
+  padding: 110px 8%;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+
+  gap: 80px;
+
+  background: transparent;
+}
+
+/* =========================
+   LEFT CONTENT
+========================= */
+
+.skill-progress-content {
+  max-width: 520px;
+}
+
+.skill-progress-label {
+  margin-bottom: 15px;
+
+  color: var(--primary);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.skill-progress-content h2 {
+  color: var(--text);
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -2.5px;
+}
+
+.skill-progress-content h2 span {
+  color: var(--blue);
+}
+
+.skill-progress-description {
+  max-width: 480px;
+
+  margin: 22px 0 30px;
+
+  color: var(--text-muted);
+
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* =========================
+   POINTS
+========================= */
+
+.skill-points {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+
+  margin-bottom: 32px;
+}
+
+.skill-points div {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+.skill-points span {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+.skill-points p {
+  color: var(--text-secondary);
+
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.skill-progress-button {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background: var(--text);
+  color: var(--card);
+
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.skill-progress-button:hover {
+  transform: translateY(-2px);
+
+  background: var(--primary);
+
+  box-shadow:
+    0 8px 20px rgba(15, 118, 110, 0.15);
+}
+
+.skill-progress-button span {
+  transition: transform 0.25s ease;
+}
+
+.skill-progress-button:hover span {
+  transform: translateX(4px);
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.skill-dashboard {
+  padding: 30px;
+
+  border: 1px solid var(--border);
+  border-radius: 24px;
+
+  background: var(--card);
+
+  box-shadow:
+    0 25px 60px var(--shadow);
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.skill-dashboard:hover {
+  transform: translateY(-5px);
+}
+
+/* =========================
+   DASHBOARD HEADER
+========================= */
+
+.skill-dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 30px;
+}
+
+.skill-dashboard-header p {
+  margin-bottom: 5px;
+
+  color: var(--text-muted);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.skill-dashboard-header h3 {
+  color: var(--text);
+
+  font-size: 1.1rem;
+}
+
+.skill-level {
+  padding: 7px 10px;
+
+  border-radius: 7px;
+
+  background: var(--blue-light);
+
+  color: var(--blue);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+/* =========================
+   OVERALL SKILL
+========================= */
+
+.overall-skill {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 20px;
+
+  border-radius: 15px;
+
+  background: var(--primary-light);
+
+  margin-bottom: 28px;
+}
+
+.skill-circle {
+  width: 82px;
+  height: 82px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      var(--primary) 68%,
+      var(--border) 68%
+    );
+}
+
+.skill-circle::before {
+  content: "";
+
+  position: absolute;
+}
+
+.skill-circle > div {
+  width: 66px;
+  height: 66px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--card);
+}
+
+.skill-circle strong {
+  color: var(--text);
+
+  font-size: 1.25rem;
+}
+
+.skill-circle span {
+  color: var(--text-muted);
+
+  font-size: 0.65rem;
+}
+
+.overall-skill h4 {
+  margin-bottom: 5px;
+
+  color: var(--text);
+
+  font-size: 0.85rem;
+}
+
+.overall-skill p {
+  max-width: 260px;
+
+  color: var(--text-muted);
+
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.skill-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 8px;
+}
+
+.skill-item-top > span {
+  color: var(--text-secondary);
+
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.skill-item-top > div {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.skill-item-top strong {
+  color: var(--text);
+
+  font-size: 0.72rem;
+}
+
+.skill-item-top small {
+  color: var(--text-muted);
+
+  font-size: 0.58rem;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 6px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: var(--border-light);
+}
+
+.skill-bar div {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--blue)
+  );
+
+  transition: width 0.5s ease;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+[data-theme="dark"] .skill-dashboard {
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.28);
+}
+
+[data-theme="dark"] .skill-progress-button {
+  color: #071312;
+}
+
+[data-theme="dark"] .skill-progress-button:hover {
+  box-shadow:
+    0 8px 20px rgba(94, 234, 212, 0.12);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .skill-progress-section {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .skill-progress-content {
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 600px) {
+  .skill-progress-section {
+    padding: 75px 6%;
+  }
+
+  .skill-dashboard {
+    padding: 22px;
+  }
+
+  .overall-skill {
+    padding: 15px;
+  }
+}

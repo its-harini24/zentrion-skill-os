@@ -1,0 +1,330 @@
+/* =========================
+   FINAL CTA
+========================= */
+
+.final-cta {
+  width: 100%;
+
+  padding: 110px 5% 95px;
+
+  box-sizing: border-box;
+
+  background: transparent;
+
+  position: relative;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.final-cta-content {
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  text-align: center;
+
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================
+   LABEL
+========================= */
+
+.final-cta-label {
+  margin: 0 0 16px;
+
+  color: var(--primary);
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.final-cta h2 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+
+  font-weight: 800;
+
+  letter-spacing: -0.055em;
+
+  line-height: 1.08;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.final-cta-description {
+  max-width: 650px;
+
+  margin: 22px auto 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.95rem;
+
+  line-height: 1.75;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.final-cta-actions {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 34px;
+}
+
+
+/* =========================
+   BUTTON BASE
+========================= */
+
+.final-cta-actions button {
+  height: 46px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 0 22px;
+
+  box-sizing: border-box;
+
+  border-radius: 10px;
+
+  font-family: inherit;
+
+  font-size: 0.75rem;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* =========================
+   PRIMARY BUTTON
+========================= */
+
+.final-cta-primary {
+  border: 1px solid var(--primary);
+
+  background: var(--primary);
+
+  color: #ffffff;
+}
+
+.final-cta-primary span {
+  font-size: 1rem;
+
+  transition: transform 0.2s ease;
+}
+
+.final-cta-primary:hover {
+  background: var(--primary-dark);
+
+  border-color: var(--primary-dark);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(15, 118, 110, 0.18);
+}
+
+.final-cta-primary:hover span {
+  transform: translateX(3px);
+}
+
+
+/* =========================
+   SECONDARY BUTTON
+========================= */
+
+.final-cta-secondary {
+  border: 1px solid var(--border);
+
+  background: rgba(255, 255, 255, 0.55);
+
+  color: var(--text);
+}
+
+.final-cta-secondary:hover {
+  background: var(--primary-light);
+
+  border-color: var(--primary);
+
+  color: var(--primary);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   JOURNEY
+========================= */
+
+.final-cta-journey {
+  margin-top: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  color: var(--text-muted);
+
+  font-size: 0.68rem;
+  font-weight: 650;
+
+  letter-spacing: 0.02em;
+}
+
+.final-cta-journey span:nth-child(even) {
+  color: var(--border);
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+[data-theme="dark"] .final-cta-secondary {
+  background: rgba(18, 29, 28, 0.55);
+
+  color: var(--text);
+}
+
+[data-theme="dark"] .final-cta-secondary:hover {
+  background: var(--primary-light);
+
+  border-color: var(--primary);
+
+  color: var(--primary);
+}
+
+[data-theme="dark"] .final-cta-primary:hover {
+  box-shadow: 0 8px 22px rgba(94, 234, 212, 0.12);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+  .final-cta {
+    padding: 90px 6% 80px;
+  }
+
+  .final-cta-description {
+    font-size: 0.9rem;
+  }
+
+  .final-cta-actions {
+    margin-top: 30px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .final-cta {
+    padding: 75px 5% 65px;
+  }
+
+  .final-cta-label {
+    font-size: 0.62rem;
+  }
+
+  .final-cta h2 {
+    font-size: 2.1rem;
+  }
+
+  .final-cta-description {
+    margin-top: 18px;
+
+    font-size: 0.85rem;
+
+    line-height: 1.7;
+  }
+
+  .final-cta-actions {
+    flex-direction: column;
+
+    width: 100%;
+
+    margin-top: 28px;
+  }
+
+  .final-cta-actions button {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .final-cta-journey {
+    margin-top: 34px;
+
+    gap: 7px;
+
+    font-size: 0.62rem;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+  .final-cta {
+    padding: 65px 5% 55px;
+  }
+
+  .final-cta h2 {
+    font-size: 1.9rem;
+  }
+
+  .final-cta-actions button {
+    max-width: 240px;
+  }
+}

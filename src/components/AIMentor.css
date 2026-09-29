@@ -1,0 +1,615 @@
+/* =========================
+   AI MENTOR SECTION
+========================= */
+
+.ai-mentor-section {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  gap: 70px;
+
+  padding: 110px 8%;
+
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary-light),
+    var(--blue-light)
+  );
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.ai-mentor-content {
+  max-width: 600px;
+}
+
+.ai-mentor-label {
+  margin-bottom: 15px;
+
+  color: var(--primary);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 1.8px;
+}
+
+.ai-mentor-content h2 {
+  color: var(--text);
+
+  font-size: clamp(2.7rem, 5vw, 4.5rem);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+
+  transition: color 0.3s ease;
+}
+
+.ai-mentor-content h2 span {
+  display: block;
+
+  color: var(--primary);
+}
+
+.ai-mentor-description {
+  max-width: 520px;
+
+  margin: 25px 0 35px;
+
+  color: var(--text-muted);
+
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.ai-mentor-features {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.ai-feature {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.ai-feature > span {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  background: var(--card);
+
+  box-shadow: 0 5px 18px var(--shadow);
+
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.ai-feature h3 {
+  margin-bottom: 3px;
+
+  color: var(--text);
+
+  font-size: 0.9rem;
+
+  transition: color 0.3s ease;
+}
+
+.ai-feature p {
+  color: var(--text-muted);
+
+  font-size: 0.78rem;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.ai-mentor-button {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 35px;
+
+  padding: 13px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: var(--primary);
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ai-mentor-button:hover {
+  background: var(--primary-dark);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(15, 118, 110, 0.2);
+}
+
+.ai-mentor-button span {
+  transition: transform 0.25s ease;
+}
+
+.ai-mentor-button:hover span {
+  transform: translateX(4px);
+}
+
+
+/* =========================
+   AI VISUAL
+========================= */
+
+.ai-mentor-visual {
+  position: relative;
+
+  min-height: 500px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================
+   GLOW
+========================= */
+
+.ai-glow {
+  position: absolute;
+
+  width: 330px;
+  height: 330px;
+
+  border-radius: 50%;
+
+  background: rgba(37, 99, 235, 0.12);
+
+  filter: blur(30px);
+
+  transition: background 0.3s ease;
+}
+
+[data-theme="dark"] .ai-glow {
+  background: rgba(94, 234, 212, 0.09);
+}
+
+
+/* =========================
+   ROBOT
+========================= */
+
+.ai-robot {
+  position: relative;
+
+  width: 230px;
+  height: 300px;
+
+  z-index: 2;
+
+  animation: robotFloat 4s ease-in-out infinite;
+}
+
+@keyframes robotFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+
+/* =========================
+   ANTENNA
+========================= */
+
+.robot-antenna {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 3px;
+  height: 35px;
+
+  background: var(--text-muted);
+
+  transform: translateX(-50%);
+
+  transition: background 0.3s ease;
+}
+
+.robot-antenna span {
+  position: absolute;
+
+  top: -9px;
+  left: 50%;
+
+  width: 13px;
+  height: 13px;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+
+  transform: translateX(-50%);
+
+  box-shadow:
+    0 0 15px rgba(15, 118, 110, 0.4);
+}
+
+
+/* =========================
+   ROBOT HEAD
+========================= */
+
+.robot-head {
+  position: absolute;
+
+  top: 30px;
+  left: 50%;
+
+  width: 150px;
+  height: 105px;
+
+  border: 3px solid var(--text-secondary);
+
+  border-radius: 35px;
+
+  background: var(--card);
+
+  transform: translateX(-50%);
+
+  box-shadow:
+    0 15px 35px var(--shadow);
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================
+   ROBOT EYES
+========================= */
+
+.robot-eyes {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 38px;
+
+  margin-top: 32px;
+}
+
+.robot-eyes span {
+  width: 13px;
+  height: 13px;
+
+  border-radius: 50%;
+
+  background: var(--blue);
+
+  box-shadow:
+    0 0 10px rgba(37, 99, 235, 0.35);
+}
+
+
+/* =========================
+   ROBOT MOUTH
+========================= */
+
+.robot-mouth {
+  width: 35px;
+  height: 7px;
+
+  margin: 18px auto 0;
+
+  border-radius: 10px;
+
+  background: var(--border);
+
+  transition: background 0.3s ease;
+}
+
+
+/* =========================
+   ROBOT BODY
+========================= */
+
+.robot-body {
+  position: absolute;
+
+  top: 145px;
+  left: 50%;
+
+  width: 180px;
+  height: 130px;
+
+  border: 3px solid var(--text-secondary);
+
+  border-radius: 28px;
+
+  background: var(--card);
+
+  transform: translateX(-50%);
+
+  box-shadow:
+    0 15px 35px var(--shadow);
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================
+   ROBOT SCREEN
+========================= */
+
+.robot-screen {
+  width: 75px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 25px auto 10px;
+
+  border-radius: 10px;
+
+  background: var(--blue-light);
+
+  color: var(--blue);
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =========================
+   ROBOT LINES
+========================= */
+
+.robot-lines {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 6px;
+}
+
+.robot-lines i {
+  width: 22px;
+  height: 4px;
+
+  border-radius: 5px;
+
+  background: var(--border);
+
+  transition: background 0.3s ease;
+}
+
+
+/* =========================
+   ROBOT ARMS
+========================= */
+
+.robot-arm {
+  position: absolute;
+
+  top: 165px;
+
+  width: 55px;
+  height: 18px;
+
+  border-radius: 15px;
+
+  background: var(--border);
+
+  transition: background 0.3s ease;
+}
+
+.robot-arm.left {
+  left: -2px;
+
+  transform: rotate(25deg);
+}
+
+.robot-arm.right {
+  right: -2px;
+
+  transform: rotate(-25deg);
+}
+
+
+/* =========================
+   CHAT BUBBLES
+========================= */
+
+.ai-chat-bubble {
+  position: absolute;
+
+  z-index: 3;
+
+  padding: 12px 16px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 13px;
+
+  background: var(--card);
+
+  color: var(--text);
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  box-shadow:
+    0 10px 30px var(--shadow);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.bubble-one {
+  top: 90px;
+  right: 5%;
+}
+
+.bubble-two {
+  bottom: 80px;
+  left: 3%;
+
+  color: var(--primary);
+}
+
+
+/* =========================
+   DARK MODE REFINEMENT
+========================= */
+
+[data-theme="dark"] .ai-mentor-section {
+  background: linear-gradient(
+    135deg,
+    #132523,
+    #18243a
+  );
+}
+
+[data-theme="dark"] .ai-feature > span {
+  background: #182825;
+}
+
+[data-theme="dark"] .robot-head,
+[data-theme="dark"] .robot-body {
+  background: #182422;
+}
+
+[data-theme="dark"] .robot-screen {
+  background: #1d2b3c;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 850px) {
+  .ai-mentor-section {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .ai-mentor-content {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    text-align: center;
+  }
+
+  .ai-mentor-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ai-mentor-features {
+    text-align: left;
+
+    max-width: 450px;
+
+    margin: auto;
+  }
+
+  .ai-mentor-button {
+    margin-top: 30px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .ai-mentor-section {
+    padding: 75px 6%;
+  }
+
+  .ai-mentor-visual {
+    min-height: 400px;
+
+    transform: scale(0.85);
+  }
+
+  .bubble-one {
+    right: 0;
+  }
+
+  .bubble-two {
+    left: 0;
+  }
+}

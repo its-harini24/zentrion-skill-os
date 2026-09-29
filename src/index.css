@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* =========================
+   LIGHT THEME
+========================= */
+
+:root,
+[data-theme="light"] {
+  --primary: #0f766e;
+  --primary-dark: #0b625c;
+  --primary-light: #e6f4f3;
+
+  --blue: #2563eb;
+  --blue-light: #eaf1ff;
+
+  --background: #f5f9fa;
+  --surface: #ffffff;
+  --card: #ffffff;
+
+  --text: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+
+  --border: #e5e7eb;
+  --border-light: #edf0f0;
+
+  --nav-background: rgba(255, 255, 255, 0.92);
+  --shadow: rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================
+   DARK THEME
+========================= */
+
+[data-theme="dark"] {
+  --primary: #5eead4;
+  --primary-dark: #7af3e2;
+  --primary-light: #163a37;
+
+  --blue: #93b4ff;
+  --blue-light: #1d2b3c;
+
+  --background: #0d1515;
+  --surface: #121d1c;
+  --card: #121d1c;
+
+  --text: #f1f7f5;
+  --text-secondary: #c7d6d2;
+  --text-muted: #91a6a1;
+
+  --border: #263936;
+  --border-light: #1d2b29;
+
+  --nav-background: rgba(13, 21, 21, 0.94);
+
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+
+  color: var(--text);
+  background-color: var(--background);
+
+  background-image: url("/src/assets/zentrion-doodle.png");
+  background-size: 900px auto;
+  background-position: center top;
+  background-repeat: repeat;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* =========================
+   DARK BACKGROUND
+========================= */
+
+[data-theme="dark"] body {
+  background-color: var(--background);
+
+  background-image: url("/src/assets/zentrion-dark-grid-doodle.png");
+  background-size: 900px auto;
+  background-position: center top;
+  background-repeat: repeat;
+}
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================
+   SELECTION
+========================= */
+
+::selection {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b9c8c4;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8fa39e;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #0d1515;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #40504c;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #52645f;
+}
+
+
+/* =========================
+   GLOBAL TRANSITIONS
+========================= */
+
+body,
+.navbar,
+.domain-card,
+.stats-section,
+.platform-journey,
+.ai-mentor,
+.real-world-section,
+.build-projects,
+.faq-section,
+.final-cta,
+.footer {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}

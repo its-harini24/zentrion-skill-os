@@ -1,0 +1,278 @@
+/* =========================
+   THEME SETTINGS
+========================= */
+
+.theme-settings {
+  position: relative;
+}
+
+/* =========================
+   SETTINGS BUTTON
+========================= */
+
+.theme-settings-button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  min-height: 40px;
+
+  padding: 0 13px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.theme-settings-button:hover {
+  color: var(--primary);
+
+  border-color: var(--primary);
+
+  background: var(--primary-light);
+
+  transform: translateY(-1px);
+}
+
+.settings-icon {
+  font-size: 0.95rem;
+
+  line-height: 1;
+
+  transition: transform 0.3s ease;
+}
+
+.theme-settings-button:hover .settings-icon {
+  transform: rotate(45deg);
+}
+
+/* =========================
+   SETTINGS MENU
+========================= */
+
+.theme-settings-menu {
+  position: absolute;
+
+  top: calc(100% + 12px);
+  right: 0;
+
+  width: 235px;
+
+  padding: 10px;
+
+  border: 1px solid var(--border);
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.13);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  animation: settingsMenuIn 0.18s ease;
+}
+
+@keyframes settingsMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MENU HEADING
+========================= */
+
+.theme-menu-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  padding: 7px 9px 10px;
+}
+
+.theme-menu-heading span {
+  color: var(--text);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.theme-menu-heading small {
+  color: var(--text-muted);
+
+  font-size: 0.65rem;
+}
+
+/* =========================
+   THEME OPTION
+========================= */
+
+.theme-option {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: var(--text);
+
+  font-family: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.theme-option:hover {
+  background: var(--primary-light);
+
+  transform: translateX(2px);
+}
+
+.theme-option.selected {
+  background: var(--primary-light);
+}
+
+/* =========================
+   OPTION ICON
+========================= */
+
+.theme-option-icon {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  background: var(--blue-light);
+
+  color: var(--primary);
+
+  font-size: 0.95rem;
+}
+
+/* =========================
+   OPTION TEXT
+========================= */
+
+.theme-option div {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.theme-option strong {
+  color: var(--text);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.theme-option small {
+  color: var(--text-muted);
+
+  font-size: 0.62rem;
+}
+
+/* =========================
+   CHECK
+========================= */
+
+.theme-check {
+  color: var(--primary);
+
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+[data-theme="dark"] .theme-settings-menu {
+  background: rgba(18, 29, 28, 0.98);
+
+  border-color: var(--border);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.38);
+}
+
+[data-theme="dark"] .theme-settings-button {
+  background: rgba(18, 29, 28, 0.65);
+}
+
+[data-theme="dark"] .theme-option:hover,
+[data-theme="dark"] .theme-option.selected {
+  background: var(--primary-light);
+}
+
+[data-theme="dark"] .theme-option-icon {
+  background: var(--blue-light);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 850px) {
+  .theme-settings-button {
+    width: 40px;
+    height: 38px;
+
+    justify-content: center;
+
+    padding: 0;
+  }
+
+  .theme-settings-button span:last-child {
+    display: none;
+  }
+
+  .theme-settings-menu {
+    right: -5px;
+  }
+}

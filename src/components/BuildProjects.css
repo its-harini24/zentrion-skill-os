@@ -1,0 +1,612 @@
+.projects-section {
+  padding: 110px 8%;
+  background: transparent;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.projects-heading {
+  max-width: 700px;
+  margin: 0 auto 65px;
+  text-align: center;
+}
+
+.projects-label {
+  margin-bottom: 15px;
+
+  color: var(--primary);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.projects-heading h2 {
+  color: var(--text);
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -2.5px;
+}
+
+.projects-heading h2 span {
+  color: var(--blue);
+}
+
+.projects-heading > p:last-child {
+  max-width: 550px;
+
+  margin: 20px auto 0;
+
+  color: var(--text-muted);
+
+  line-height: 1.7;
+}
+
+/* =========================
+   WORKSPACE
+========================= */
+
+.projects-workspace {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+
+  gap: 70px;
+
+  padding: 55px;
+
+  border: 1px solid var(--border);
+  border-radius: 28px;
+
+  background: var(--card);
+
+  box-shadow:
+    0 20px 60px var(--shadow);
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.project-number {
+  margin-bottom: 18px;
+
+  color: var(--primary);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.project-info h3 {
+  color: var(--text);
+
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+}
+
+.project-info > p {
+  max-width: 430px;
+
+  margin: 22px 0;
+
+  color: var(--text-muted);
+
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+/* =========================
+   META
+========================= */
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-meta span {
+  padding: 7px 10px;
+
+  border-radius: 7px;
+
+  background: var(--primary-light);
+  color: var(--primary);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.project-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 30px;
+  padding: 13px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: var(--blue);
+  color: #ffffff;
+
+  font-family: inherit;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.project-button:hover {
+  background: var(--blue);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(37, 99, 235, 0.18);
+}
+
+.project-button span {
+  transition: transform 0.25s ease;
+}
+
+.project-button:hover span {
+  transform: translateX(4px);
+}
+
+/* =========================
+   WORKSPACE VISUAL
+========================= */
+
+.workspace-visual {
+  position: relative;
+
+  min-height: 400px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workspace-window {
+  width: 100%;
+  max-width: 580px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  background: var(--card);
+
+  box-shadow:
+    0 25px 55px var(--shadow);
+
+  transform:
+    perspective(1000px)
+    rotateY(-3deg);
+
+  transition:
+    transform 0.4s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.workspace-window:hover {
+  transform:
+    perspective(1000px)
+    rotateY(0deg)
+    translateY(-5px);
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.workspace-topbar {
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 0 16px;
+
+  border-bottom: 1px solid var(--border);
+
+  background: var(--primary-light);
+}
+
+.window-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.window-dots span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--border);
+}
+
+.workspace-topbar p {
+  color: var(--text-muted);
+
+  font-size: 0.65rem;
+}
+
+/* =========================
+   WORKSPACE BODY
+========================= */
+
+.workspace-body {
+  display: flex;
+
+  min-height: 310px;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.workspace-sidebar {
+  width: 58px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 20px;
+
+  padding-top: 25px;
+
+  border-right: 1px solid var(--border);
+
+  background: var(--primary-light);
+}
+
+.workspace-sidebar div {
+  width: 18px;
+  height: 5px;
+
+  border-radius: 5px;
+
+  background: var(--border);
+}
+
+.workspace-sidebar .side-active {
+  background: var(--primary);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.workspace-main {
+  flex: 1;
+
+  padding: 30px;
+}
+
+.workspace-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.workspace-title small {
+  color: var(--text-muted);
+
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.workspace-title h4 {
+  margin-top: 5px;
+
+  color: var(--text);
+
+  font-size: 1.1rem;
+}
+
+.status {
+  padding: 6px 8px;
+
+  border-radius: 6px;
+
+  background: var(--blue-light);
+  color: var(--blue);
+
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.workspace-progress {
+  margin-top: 28px;
+}
+
+.progress-top {
+  display: flex;
+  justify-content: space-between;
+
+  color: var(--text-muted);
+
+  font-size: 0.7rem;
+}
+
+.progress-top strong {
+  color: var(--primary);
+}
+
+.progress-bar {
+  height: 6px;
+
+  margin-top: 9px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: var(--border);
+}
+
+.progress-bar div {
+  width: 68%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: var(--primary);
+}
+
+/* =========================
+   TASKS
+========================= */
+
+.workspace-tasks {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px;
+
+  border-radius: 8px;
+
+  background: var(--primary-light);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.task > span {
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+
+  border-radius: 5px;
+
+  color: transparent;
+
+  font-size: 0.65rem;
+}
+
+.task p {
+  color: var(--text-muted);
+
+  font-size: 0.7rem;
+}
+
+.task.completed > span {
+  border-color: var(--primary);
+
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.active-task {
+  border: 1px solid var(--primary-light);
+
+  background: var(--primary-light);
+}
+
+.active-task > span {
+  border: none;
+
+  color: var(--primary);
+}
+
+.active-task p {
+  color: var(--text);
+
+  font-weight: 600;
+}
+
+/* =========================
+   FLOATING BADGES
+========================= */
+
+.workspace-badge {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 9px 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  background: var(--card);
+  color: var(--text-secondary);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  box-shadow:
+    0 10px 25px var(--shadow);
+
+  animation:
+    projectFloat 3.5s ease-in-out infinite;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.workspace-badge span {
+  color: var(--primary);
+}
+
+.badge-one {
+  top: 25px;
+  right: -10px;
+}
+
+.badge-two {
+  bottom: 25px;
+  left: -15px;
+
+  animation-delay: 1s;
+}
+
+@keyframes projectFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+[data-theme="dark"] .projects-workspace {
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.28);
+}
+
+[data-theme="dark"] .workspace-window {
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .workspace-badge {
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .project-button,
+[data-theme="dark"] .task.completed > span {
+  color: #071312;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .projects-workspace {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+
+    padding: 40px;
+  }
+
+  .project-info {
+    max-width: 650px;
+
+    margin: auto;
+
+    text-align: center;
+  }
+
+  .project-info > p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .project-meta {
+    justify-content: center;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .projects-section {
+    padding: 75px 6%;
+  }
+
+  .projects-workspace {
+    padding: 25px 18px;
+
+    border-radius: 20px;
+  }
+
+  .workspace-main {
+    padding: 20px;
+  }
+
+  .workspace-sidebar {
+    width: 42px;
+  }
+
+  .workspace-badge {
+    display: none;
+  }
+}

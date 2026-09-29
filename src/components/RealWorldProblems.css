@@ -1,0 +1,428 @@
+.real-world-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 90px;
+
+  padding: 110px 8%;
+
+  background: transparent;
+}
+
+/* =========================
+   VISUAL
+========================= */
+
+.real-world-visual {
+  position: relative;
+  min-height: 440px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.problem-window {
+  width: min(480px, 100%);
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+  border-radius: 20px;
+
+  background: var(--card);
+
+  box-shadow:
+    0 25px 60px var(--shadow);
+
+  transform: rotate(-2deg);
+
+  transition:
+    transform 0.4s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.problem-window:hover {
+  transform: rotate(0deg) translateY(-6px);
+}
+
+/* =========================
+   WINDOW HEADER
+========================= */
+
+.window-header {
+  display: flex;
+  gap: 7px;
+
+  padding: 14px 17px;
+
+  border-bottom: 1px solid var(--border);
+
+  background: var(--primary-light);
+}
+
+.window-header span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--border);
+}
+
+/* =========================
+   PROBLEM
+========================= */
+
+.problem-content {
+  padding: 30px;
+}
+
+.problem-badge {
+  display: inline-block;
+
+  padding: 6px 9px;
+
+  border-radius: 6px;
+
+  background: var(--primary-light);
+  color: var(--primary);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.problem-content h3 {
+  margin: 18px 0 10px;
+
+  color: var(--text);
+
+  font-size: 1.35rem;
+}
+
+.problem-content > p {
+  color: var(--text-muted);
+
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* =========================
+   TAGS
+========================= */
+
+.problem-tags {
+  display: flex;
+  gap: 8px;
+
+  margin-top: 22px;
+}
+
+.problem-tags span {
+  padding: 6px 9px;
+
+  border-radius: 6px;
+
+  background: var(--border-light);
+  color: var(--text-muted);
+
+  font-size: 0.65rem;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.problem-progress {
+  height: 5px;
+
+  margin-top: 28px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: var(--border);
+}
+
+.problem-progress div {
+  width: 68%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: var(--primary);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.problem-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 18px;
+
+  color: var(--text-muted);
+
+  font-size: 0.72rem;
+}
+
+.problem-footer strong {
+  color: var(--primary);
+
+  font-size: 1.1rem;
+}
+
+/* =========================
+   FLOATING CODE
+========================= */
+
+.floating-code {
+  position: absolute;
+
+  right: 3%;
+  top: 35px;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: 15px;
+
+  background: var(--card);
+  color: var(--blue);
+
+  font-weight: 700;
+
+  box-shadow:
+    0 10px 25px var(--shadow);
+
+  animation: floatingCode 3s ease-in-out infinite;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+@keyframes floatingCode {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* =========================
+   FLOATING NODES
+========================= */
+
+.floating-node {
+  position: absolute;
+
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+}
+
+.node-one {
+  left: 5%;
+  bottom: 80px;
+}
+
+.node-two {
+  right: 8%;
+  bottom: 40px;
+
+  width: 8px;
+  height: 8px;
+
+  background: var(--blue);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.real-world-content {
+  max-width: 570px;
+}
+
+.real-world-label {
+  margin-bottom: 15px;
+
+  color: var(--primary);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.real-world-content h2 {
+  color: var(--text);
+
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -2.5px;
+}
+
+.real-world-content h2 span {
+  display: block;
+
+  color: var(--blue);
+}
+
+.real-world-description {
+  margin: 25px 0 32px;
+
+  color: var(--text-muted);
+
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+/* =========================
+   POINTS
+========================= */
+
+.real-world-points {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.real-world-points div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.real-world-points span {
+  color: var(--primary);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.real-world-points p {
+  color: var(--text-secondary);
+
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.real-world-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 32px;
+  padding: 13px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: var(--blue);
+  color: #ffffff;
+
+  font-family: inherit;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.real-world-button:hover {
+  background: var(--blue);
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 25px rgba(37, 99, 235, 0.18);
+}
+
+.real-world-button span {
+  transition: transform 0.25s ease;
+}
+
+.real-world-button:hover span {
+  transform: translateX(4px);
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+[data-theme="dark"] .problem-window {
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.28);
+}
+
+[data-theme="dark"] .floating-code {
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .real-world-button {
+  color: #071312;
+}
+
+[data-theme="dark"] .real-world-button:hover {
+  box-shadow:
+    0 10px 25px rgba(94, 234, 212, 0.12);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 850px) {
+  .real-world-section {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .real-world-content {
+    max-width: 700px;
+    margin: auto;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .real-world-section {
+    padding: 75px 6%;
+  }
+
+  .real-world-visual {
+    min-height: 350px;
+  }
+
+  .problem-content {
+    padding: 22px;
+  }
+}

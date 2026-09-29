@@ -1,0 +1,49 @@
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  padding: 55px 8%;
+
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+
+  background: var(--card);
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.stat {
+  text-align: center;
+  padding: 10px;
+}
+
+.stat h3 {
+  margin: 0;
+
+  color: var(--blue);
+
+  font-size: 2.3rem;
+  font-weight: 700;
+}
+
+.stat p {
+  margin-top: 8px;
+
+  color: var(--text-muted);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .stats-section {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    padding: 40px 6%;
+  }
+}
