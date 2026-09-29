@@ -63,7 +63,6 @@ Connect learning and skill development with industry-oriented preparation.
 
 ## Project Structure
 
-```text
 zentrion-skill-os/
 ├── src/
 │   ├── assets/
@@ -75,3 +74,54 @@ zentrion-skill-os/
 ├── index.html
 ├── package.json
 └── README.md
+
+## Getting Started
+
+### Clone the Repository
+
+    git clone https://github.com/its-harini24/zentrion-skill-os.git
+
+### Navigate to the Project
+
+    cd zentrion-skill-os
+
+### Install Dependencies
+
+    npm install
+
+### Start the Development Server
+
+    npm run dev
+
+Open the local development URL shown in the terminal.
+
+## Project Status
+
+This repository contains the frontend implementation and interactive product prototype of Zentrion Skill OS.
+
+The current focus is on:
+
+- Product UI/UX
+- Responsive design
+- Navigation and user flows
+- Student experience
+- Domain-based practice
+- Skill visualization
+- Project exploration
+
+## Built For
+
+Zentrion Technologies
+
+https://zentriontechnologies.com/
+
+## Author
+
+Harini N
+
+B.Tech CSBS  
+Rajalakshmi Institute of Technology, Chennai
+
+---
+
+© 2026 Zentrion Technologies. All rights reserved.
