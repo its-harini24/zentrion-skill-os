@@ -1,0 +1,1441 @@
+/* =====================================================
+   ZENTRION DIGITAL ELECTRONICS CIRCUIT SIMULATOR
+   Theme: Zentrion Blue-Green / Teal Design System
+   Interaction: CircuitVerse & Tinkercad Circuits Inspired
+===================================================== */
+
+/* ── PAGE SHELL ──────────────────────────────────── */
+
+.csd-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--background);
+  color: var(--text);
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  user-select: none;
+}
+
+/* ── TOP NAVBAR ──────────────────────────────────── */
+
+.csd-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 54px;
+  padding: 0 18px;
+  background: var(--nav-background, rgba(255, 255, 255, 0.94));
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  flex-shrink: 0;
+  z-index: 30;
+}
+
+[data-theme="dark"] .csd-navbar {
+  background: rgba(13, 21, 21, 0.94);
+}
+
+.csd-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.csd-logo-btn {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.csd-logo-img {
+  height: 28px;
+  width: auto;
+}
+
+.csd-dept-pill {
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.csd-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.csd-circuit-name {
+  border: 1px solid transparent;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  padding: 4px 12px;
+  border-radius: 6px;
+  min-width: 160px;
+  max-width: 300px;
+  transition: all 0.2s ease;
+}
+
+.csd-circuit-name:hover {
+  border-color: var(--border);
+}
+
+.csd-circuit-name:focus {
+  border-color: var(--primary);
+  background: var(--card);
+}
+
+.csd-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.csd-nav-btn {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.csd-nav-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* ── TOOLBAR ─────────────────────────────────────── */
+
+.csd-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  z-index: 20;
+}
+
+.csd-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--card);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.16s ease;
+}
+
+.csd-tool-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.csd-tool-btn.active-run {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(15, 118, 110, 0.35);
+}
+
+.csd-tool-btn.paused {
+  background: #f59e0b;
+  color: #ffffff;
+  border-color: #d97706;
+}
+
+.csd-tool-btn.danger {
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.csd-tool-btn.danger:hover {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #b91c1c;
+}
+
+[data-theme="dark"] .csd-tool-btn.danger:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+.csd-tool-sep {
+  width: 1px;
+  height: 22px;
+  background: var(--border);
+  margin: 0 4px;
+}
+
+.csd-zoom-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  min-width: 42px;
+  text-align: center;
+}
+
+.csd-tool-hint-right {
+  margin-left: auto;
+  font-size: 0.74rem;
+}
+
+.csd-hint-connecting {
+  color: var(--blue, #2563eb);
+  font-weight: 700;
+  background: var(--blue-light, #eaf1ff);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.csd-hint-idle {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+}
+
+/* ── THREE-PANE BODY LAYOUT ───────────────────────── */
+
+.csd-body {
+  display: grid;
+  grid-template-columns: 240px 1fr 240px;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── LEFT PANE: LIBRARY & EXPERIMENTS ────────────── */
+
+.csd-library {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.csd-left-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+
+.csd-left-tab {
+  flex: 1;
+  padding: 10px 6px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.18s ease;
+}
+
+.csd-left-tab:hover {
+  color: var(--primary);
+}
+
+.csd-left-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+  background: var(--card);
+}
+
+.csd-library-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.csd-lib-instruction {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin: 0;
+  font-style: italic;
+}
+
+.csd-lib-category {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.csd-lib-cat-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 2px 2px;
+}
+
+.csd-lib-items-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.csd-lib-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: grab;
+  transition: all 0.16s ease;
+}
+
+.csd-lib-item:hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  transform: translateX(2px);
+}
+
+.csd-lib-item:active {
+  cursor: grabbing;
+}
+
+.csd-lib-item span {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.csd-lib-preview {
+  flex-shrink: 0;
+}
+
+/* ── GUIDED EXPERIMENTS PANE ─────────────────────── */
+
+.csd-exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.csd-exp-card {
+  padding: 10px 12px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.csd-exp-card:hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+.csd-exp-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.csd-exp-icon {
+  font-size: 1.25rem;
+}
+
+.csd-exp-card-header strong {
+  font-size: 0.78rem;
+  color: var(--text);
+  display: block;
+}
+
+.csd-exp-card-desc {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 6px 0 0;
+}
+
+.csd-exp-level {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  border-radius: 10px;
+}
+
+.csd-exp-level.beginner {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.csd-exp-level.intermediate {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+/* Active Experiment Guide */
+.csd-exp-active-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.csd-exp-active-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.csd-exp-active-head h3 {
+  font-size: 0.85rem;
+  margin: 0;
+  color: var(--text);
+}
+
+.csd-exp-intro {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.csd-exp-theory-box {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--background);
+  border: 1px solid var(--border);
+}
+
+.csd-box-title {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.csd-exp-theory-box pre {
+  font-family: monospace;
+  font-size: 0.68rem;
+  margin: 0;
+  white-space: pre-wrap;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.csd-exp-steps-box {
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--primary-light);
+  border: 1px solid rgba(15, 118, 110, 0.25);
+}
+
+.csd-step-instruction {
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 4px 0 10px;
+}
+
+.csd-step-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.csd-step-btn {
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  font-family: inherit;
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.csd-step-btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.csd-step-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.csd-step-indicators {
+  display: flex;
+  gap: 4px;
+}
+
+.csd-step-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+}
+
+.csd-step-dot.active {
+  background: var(--primary);
+  transform: scale(1.2);
+}
+
+.csd-step-dot.done {
+  background: var(--primary);
+  opacity: 0.4;
+}
+
+.csd-exp-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.csd-exp-load-btn {
+  padding: 8px 12px;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  background: var(--primary);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.csd-exp-load-btn:hover {
+  background: var(--primary-dark);
+}
+
+.csd-exp-challenge-btn {
+  padding: 8px 12px;
+  border: 1px solid var(--blue, #2563eb);
+  border-radius: 8px;
+  background: var(--blue-light, #eaf1ff);
+  color: var(--blue, #2563eb);
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.csd-exp-challenge-btn:hover {
+  background: var(--blue, #2563eb);
+  color: #ffffff;
+}
+
+.csd-exp-back-btn {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.csd-exp-back-btn:hover {
+  border-color: var(--text);
+  color: var(--text);
+}
+
+/* ── CENTER CIRCUIT CANVAS ───────────────────────── */
+
+.csd-canvas-wrap {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: var(--background);
+}
+
+.csd-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Wires */
+.csd-wire-group {
+  cursor: pointer;
+}
+
+.csd-wire {
+  /* No CSS transition — wire state is driven by simulation, instant feedback is correct */
+}
+
+.csd-wire.wire-high {
+  stroke: var(--primary, #0f766e);
+  filter: drop-shadow(0 0 3px rgba(15, 118, 110, 0.5));
+}
+
+.csd-wire.wire-low {
+  stroke: var(--border, #94a3b8);
+}
+
+/* Components on Canvas */
+.csd-component {
+  /* No transition — avoids jitter/lag during drag */
+  will-change: transform;
+}
+
+.csd-component.selected {
+  filter: drop-shadow(0 0 6px rgba(37, 99, 235, 0.4));
+}
+
+.csd-comp-label {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Pins */
+.csd-pin-node {
+  cursor: pointer;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.csd-pin-circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.12s ease, filter 0.12s ease, fill 0.12s ease;
+}
+
+.csd-pin-node:hover .csd-pin-circle {
+  transform: scale(1.25);
+  filter: drop-shadow(0 0 6px var(--primary));
+}
+
+/* Target highlight ring — pulses cyan when in wire-connection mode */
+@keyframes pinTargetPulse {
+  0%   { opacity: 0.4; stroke-width: 1.5; }
+  50%  { opacity: 1;   stroke-width: 3;   }
+  100% { opacity: 0.4; stroke-width: 1.5; }
+}
+
+.csd-pin-target-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pinTargetPulse 1s ease-in-out infinite;
+}
+
+/* Source pin pulse — pulses royal blue when actively sourcing a wire */
+@keyframes pinSourcePulse {
+  0%   { opacity: 0.4; stroke-width: 2; }
+  50%  { opacity: 1;   stroke-width: 4; }
+  100% { opacity: 0.4; stroke-width: 2; }
+}
+
+.csd-pin-source-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pinSourcePulse 0.9s ease-in-out infinite;
+}
+
+/* Preview rubberband wire */
+.csd-preview-wire {
+  pointer-events: none;
+  filter: drop-shadow(0 0 4px rgba(2, 132, 199, 0.5));
+}
+
+/* Wires hover feedback */
+.csd-wire-group:hover .csd-wire {
+  stroke-width: 3.5 !important;
+  filter: drop-shadow(0 0 4px var(--primary));
+}
+
+/* Empty Canvas Hero Banner */
+.csd-empty-hero {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  max-width: 460px;
+}
+
+.csd-empty-icon {
+  font-size: 2.8rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.csd-empty-hero h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0 0 6px;
+  color: var(--text);
+}
+
+.csd-empty-hero p {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.csd-empty-sub {
+  color: var(--text-muted);
+  margin-top: 4px !important;
+}
+
+.csd-empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  pointer-events: auto;
+}
+
+.csd-quick-btn {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.csd-quick-btn:hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.csd-quick-btn.primary {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.csd-quick-btn.primary:hover {
+  background: var(--primary-dark);
+}
+
+/* Toast Notifications */
+.csd-toast-banner {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  animation: toastPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 50;
+}
+
+.toast-success {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.toast-info {
+  background: var(--blue, #2563eb);
+  color: #ffffff;
+}
+
+.toast-warn {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+@keyframes toastPop {
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* ── RIGHT PANE: PROPERTIES & STATS ──────────────── */
+
+.csd-props {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border-left: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.csd-props-header {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+
+.csd-props-header h3 {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.csd-props-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.csd-prop-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.csd-prop-eyebrow {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.csd-prop-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.csd-prop-desc {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 2px 0 0;
+}
+
+.csd-prop-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.csd-prop-field label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.csd-prop-input {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--background);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.csd-prop-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.csd-rot-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.csd-rot-row span {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.csd-rot-btn {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--background);
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.csd-rot-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Pin Logic Status Table */
+.csd-prop-pins {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.csd-pins-table {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.csd-pins-head {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.csd-pin-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.csd-val-badge {
+  padding: 1px 7px;
+  border-radius: 12px;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.csd-val-badge.high {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.csd-val-badge.low {
+  background: var(--border);
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .csd-val-badge.high {
+  background: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+}
+
+.csd-btn-delete {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  background: transparent;
+  color: #ef4444;
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.csd-btn-delete:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+/* Stats in Right Pane */
+.csd-stat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.csd-stat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 8px;
+  background: var(--background);
+  border-radius: 6px;
+  font-size: 0.74rem;
+}
+
+.csd-stat-item span {
+  color: var(--text-secondary);
+}
+
+.csd-stat-item strong {
+  color: var(--text);
+}
+
+.csd-status-pill {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+
+.csd-status-pill.running {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.csd-status-pill.paused {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.csd-shortcuts-card {
+  margin-top: auto;
+  padding: 10px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.csd-shortcuts-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.csd-shortcuts-card li {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.csd-shortcuts-card kbd {
+  display: inline-block;
+  padding: 1px 5px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--card);
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ── BOTTOM PANEL: SIMULATION, TRUTH TABLE, DIAGS ── */
+
+.csd-bottom-panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+  transition: height 0.2s ease;
+  z-index: 25;
+}
+
+.csd-bottom-panel.open {
+  height: 200px;
+}
+
+.csd-bottom-panel.collapsed {
+  height: 38px;
+}
+
+.csd-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 38px;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.csd-bottom-tab-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.csd-btab {
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.csd-btab:hover {
+  color: var(--text);
+  background: var(--card);
+}
+
+.csd-btab.active {
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--primary);
+}
+
+.csd-panel-toggle {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.csd-panel-toggle:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+.csd-bottom-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 18px;
+}
+
+/* Data Tables */
+.csd-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.74rem;
+}
+
+.csd-data-table th {
+  text-align: left;
+  padding: 6px 10px;
+  font-weight: 800;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.csd-data-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.csd-data-table tr:hover {
+  background: var(--background);
+  cursor: pointer;
+}
+
+.csd-data-table tr.row-selected {
+  background: var(--primary-light);
+}
+
+.csd-type-tag {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  font-family: monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.th-input {
+  color: var(--blue, #2563eb) !important;
+}
+
+.th-output {
+  color: var(--primary) !important;
+}
+
+.csd-empty-msg {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.csd-diag-clean {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #10b981;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 8px 0;
+}
+
+.csd-diag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.csd-diag-list li {
+  font-size: 0.74rem;
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+/* Unavailable Tag in Library */
+.csd-unavail-tag {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin-top: 3px;
+}
+
+/* Component Interactive Action Buttons in Properties */
+.csd-prop-action-btn {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.16s ease;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.csd-prop-action-btn.active-high {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(15, 118, 110, 0.35);
+}
+
+.csd-prop-action-btn.active-low {
+  background: var(--card);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+.csd-prop-action-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.csd-prop-hint {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.35;
+}
+
+/* Clock Frequency Controls */
+.csd-clock-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.csd-clock-chip {
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-family: inherit;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+
+.csd-clock-chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.csd-clock-chip.selected {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.csd-clock-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background: var(--background);
+}
+
+.csd-text-high {
+  color: var(--primary);
+}
+
+.csd-text-low {
+  color: var(--text-muted);
+}
+
+/* LED Palette */
+.csd-led-palette {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.csd-color-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 5px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-family: inherit;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+
+.csd-color-pill.active {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.csd-color-circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* 7-Segment Grid in Properties */
+.csd-seg-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  margin-top: 6px;
+}
+
+.csd-seg-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 2px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.csd-seg-cell.on {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.csd-seg-cell.off {
+  background: var(--background);
+  color: var(--text-muted);
+}
+
+/* ── RESPONSIVE DESIGN ───────────────────────────── */
+
+@media (max-width: 1080px) {
+  .csd-body {
+    grid-template-columns: 210px 1fr 200px;
+  }
+}
+
+@media (max-width: 860px) {
+  .csd-body {
+    grid-template-columns: 200px 1fr;
+  }
+  .csd-props {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .csd-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 140px 1fr;
+  }
+  .csd-library {
+    grid-row: 1;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}

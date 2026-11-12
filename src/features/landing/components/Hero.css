@@ -1,0 +1,84 @@
+.hero {
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 8%;
+  background: transparent;
+}
+
+.hero-label {
+  margin-bottom: 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  animation: heroElementIn 0.5s var(--ease-smooth, cubic-bezier(0.16, 1, 0.3, 1)) both;
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -3px;
+  animation: heroElementIn 0.6s var(--ease-smooth, cubic-bezier(0.16, 1, 0.3, 1)) 0.08s both;
+}
+
+.hero-description {
+  max-width: 600px;
+  margin: 28px 0;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  animation: heroElementIn 0.6s var(--ease-smooth, cubic-bezier(0.16, 1, 0.3, 1)) 0.16s both;
+}
+
+.hero-button {
+  padding: 14px 26px;
+  border: none;
+  border-radius: 10px;
+  background: var(--blue);
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, box-shadow 0.25s ease;
+  animation: heroElementIn 0.6s var(--ease-smooth, cubic-bezier(0.16, 1, 0.3, 1)) 0.24s both;
+}
+
+.hero-button:hover {
+  background: #1D4ED8;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.hero-button:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+@keyframes heroElementIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-label,
+  .hero h1,
+  .hero-description,
+  .hero-button {
+    animation: none !important;
+  }
+}

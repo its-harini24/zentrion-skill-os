@@ -1,0 +1,552 @@
+:root,
+[data-theme="light"] {
+  --leaderboard-toast-bg: rgba(255, 255, 255, 0.98);
+  --leaderboard-toast-border: rgba(15, 118, 110, 0.25);
+  --leaderboard-toast-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
+}
+
+[data-theme="dark"] {
+  --leaderboard-toast-bg: rgba(18, 29, 28, 0.98);
+  --leaderboard-toast-border: rgba(94, 234, 212, 0.24);
+  --leaderboard-toast-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* =====================================================
+   PAGE CONTAINER - COMPACT & CLEAN (NO DECORATIVE ANIMATIONS)
+===================================================== */
+
+.leaderboard-page {
+  position: relative;
+  min-height: 100vh;
+  padding: 24px 6% 60px;
+  overflow-x: hidden;
+  background: transparent;
+}
+
+/* =====================================================
+   RANK ACHIEVEMENT TOAST / POP-UP
+===================================================== */
+
+.rank-achievement-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1200;
+  width: 350px;
+  max-width: calc(100vw - 32px);
+  padding: 16px 18px;
+  border: 1px solid var(--leaderboard-toast-border);
+  border-radius: 14px;
+  background: var(--leaderboard-toast-bg);
+  box-shadow: var(--leaderboard-toast-shadow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: toastSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.rank-achievement-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.rank-achievement-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rank-achievement-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.rank-achievement-title strong {
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.rank-achievement-close {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.rank-achievement-close:hover {
+  background: var(--primary-light);
+  color: var(--text);
+}
+
+.rank-achievement-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 8px;
+  flex-wrap: wrap;
+}
+
+.rank-badge-pill {
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.rank-badge-prev {
+  background: rgba(107, 114, 128, 0.14);
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.rank-badge-arrow {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.rank-badge-new {
+  background: rgba(15, 118, 110, 0.16);
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.rank-badge-gain {
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #10b981;
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.rank-achievement-desc {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+/* =====================================================
+   COMPACT HEADER
+===================================================== */
+
+.leaderboard-page-header {
+  max-width: 1150px;
+  margin: 0 auto 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.leaderboard-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.leaderboard-page-back {
+  border: none;
+  background: transparent;
+  padding: 6px 0;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.leaderboard-page-back:hover {
+  color: var(--primary);
+  transform: translateX(-3px);
+}
+
+.leaderboard-user-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.leaderboard-user-badge strong {
+  color: var(--primary);
+}
+
+.user-badge-sep {
+  color: var(--border);
+  font-weight: 700;
+}
+
+.leaderboard-page-intro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.leaderboard-intro-content {
+  max-width: 720px;
+}
+
+.leaderboard-page-kicker {
+  display: block;
+  color: var(--primary);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin-bottom: 4px;
+}
+
+.leaderboard-intro-content h1 {
+  margin: 0 0 6px;
+  color: var(--text);
+  font-size: clamp(1.8rem, 3.6vw, 2.4rem);
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+.leaderboard-intro-content p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   MAIN LEADERBOARD SECTION
+===================================================== */
+
+.leaderboard-page-content {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: 0 8px 30px var(--shadow);
+}
+
+.leaderboard-page-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.leaderboard-toolbar-title h2 {
+  margin: 0;
+  font-size: 1.18rem;
+  letter-spacing: -0.02em;
+}
+
+.leaderboard-toolbar-title p {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.leaderboard-page-filters {
+  display: flex;
+  gap: 10px;
+}
+
+.leaderboard-page-filters select {
+  min-width: 135px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.leaderboard-page-filters select:hover {
+  border-color: var(--primary);
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.leaderboard-page-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.leaderboard-page-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.leaderboard-page-table th {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.leaderboard-page-table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  transition: background-color 0.15s ease;
+}
+
+.leaderboard-page-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.leaderboard-page-row {
+  transition: background-color 0.15s ease;
+}
+
+.leaderboard-page-row:hover {
+  background: var(--primary-light);
+}
+
+/* Highlighted Student Row */
+.leaderboard-page-current {
+  background: var(--primary-light) !important;
+  font-weight: 600;
+  position: relative;
+}
+
+.leaderboard-page-current td:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: inset 3px 0 0 var(--primary);
+}
+
+.leaderboard-page-current td:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.leaderboard-page-rank-stack {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.leaderboard-page-rank {
+  font-weight: 800;
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.leaderboard-page-rank-trend {
+  display: inline-block;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.14);
+  color: #10b981;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+[data-theme="dark"] .leaderboard-page-rank-trend {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.16);
+}
+
+.leaderboard-page-student {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.leaderboard-page-avatar {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 0.75rem;
+}
+
+.leaderboard-page-name-wrap strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.leaderboard-page-you {
+  padding: 2px 7px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+[data-theme="dark"] .leaderboard-page-you {
+  color: #071312;
+}
+
+.leaderboard-page-xp {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.leaderboard-page-empty {
+  padding: 30px !important;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* =====================================================
+   COMPACT MOTIVATIONAL QUOTE (BELOW TABLE)
+===================================================== */
+
+.leaderboard-page-quote-compact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 14px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  background: var(--background);
+}
+
+.quote-compact-icon {
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.quote-compact-label {
+  color: var(--primary);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.quote-compact-text {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.leaderboard-page-note {
+  margin: 12px 0 0;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  text-align: right;
+}
+
+/* =====================================================
+   RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 768px) {
+  .leaderboard-page {
+    padding: 18px 4% 50px;
+  }
+
+  .leaderboard-page-content {
+    padding: 16px 14px;
+  }
+
+  .leaderboard-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .leaderboard-page-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .leaderboard-page-filters {
+    width: 100%;
+  }
+
+  .leaderboard-page-filters select {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .rank-achievement-toast {
+    top: 14px;
+    right: 14px;
+    left: 14px;
+    width: auto;
+  }
+
+  .leaderboard-page-quote-compact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .leaderboard-page-note {
+    text-align: left;
+  }
+}
+
+/* =====================================================
+   ACCESSIBILITY: REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .rank-achievement-toast {
+    animation: none !important;
+  }
+}

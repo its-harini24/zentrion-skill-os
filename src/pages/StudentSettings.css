@@ -1,0 +1,402 @@
+/* =========================================
+   ZENTRION - STUDENT SETTINGS
+========================================= */
+
+.student-settings {
+    --settings-primary: #2563eb;
+    --settings-secondary: #0d9488;
+    --settings-text: #172033;
+    --settings-muted: #64748b;
+    --settings-border: #e2e8f0;
+    --settings-card: #ffffff;
+    --settings-background: #f8fafc;
+
+    min-height: 100vh;
+    padding: 35px 6%;
+    background: var(--settings-background);
+    color: var(--settings-text);
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* PAGE HEADER */
+
+.settings-page-header {
+    margin-bottom: 35px;
+}
+
+.settings-page-header>div {
+    margin-top: 25px;
+}
+
+.settings-page-header>div>p {
+    color: var(--settings-secondary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.settings-page-header h1 {
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 800;
+    margin: 0 0 10px;
+}
+
+.settings-page-header span {
+    color: var(--settings-muted);
+    font-size: 14px;
+}
+
+/* MAIN LAYOUT */
+
+.settings-layout {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 25px;
+    align-items: start;
+}
+
+/* SIDEBAR */
+
+.settings-sidebar {
+    background: var(--settings-card);
+    border: 1px solid var(--settings-border);
+    border-radius: 16px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.settings-nav-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 14px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--settings-muted);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.settings-nav-item span {
+    font-size: 17px;
+}
+
+.settings-nav-item:hover {
+    background: #eff6ff;
+    color: var(--settings-primary);
+}
+
+.settings-nav-item.active {
+    background: #eff6ff;
+    color: var(--settings-primary);
+    font-weight: 700;
+}
+
+/* CONTENT */
+
+.settings-content {
+    min-width: 0;
+}
+
+.settings-card {
+    background: var(--settings-card);
+    border: 1px solid var(--settings-border);
+    border-radius: 18px;
+    padding: 28px;
+}
+
+.settings-card-header {
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--settings-border);
+    margin-bottom: 8px;
+}
+
+.settings-card-header h2 {
+    font-size: 19px;
+    font-weight: 750;
+    margin: 0 0 8px;
+}
+
+.settings-card-header p {
+    color: var(--settings-muted);
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* INDIVIDUAL SETTING ROWS */
+
+.setting-row {
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 19px 0;
+    border-bottom: 1px solid var(--settings-border);
+}
+
+.setting-row:last-child {
+    border-bottom: none;
+}
+
+.setting-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.setting-info strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.setting-info p {
+    color: var(--settings-muted);
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ACTION BUTTONS */
+
+.settings-action-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 16px;
+    border: 1px solid var(--settings-border);
+    border-radius: 9px;
+    background: var(--settings-card);
+    color: var(--settings-text);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.settings-action-btn:hover {
+    border-color: var(--settings-primary);
+    color: var(--settings-primary);
+}
+
+.settings-action-btn.selected {
+    background: #eff6ff;
+    border-color: var(--settings-primary);
+    color: var(--settings-primary);
+}
+
+/* SELECT AND INPUT FIELDS */
+
+.settings-select {
+    width: 210px;
+    max-width: 45%;
+    min-height: 42px;
+    padding: 10px 12px;
+    border: 1px solid var(--settings-border);
+    border-radius: 9px;
+    outline: none;
+    background: var(--settings-card);
+    color: var(--settings-text);
+    font-family: inherit;
+    font-size: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.settings-select:focus {
+    border-color: var(--settings-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* NOTIFICATION CHECKBOXES */
+
+.setting-row input[type="checkbox"] {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    accent-color: var(--settings-primary);
+    cursor: pointer;
+}
+
+/* SAVE BUTTON */
+
+.settings-save-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 9px;
+    background: var(--settings-primary);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.settings-save-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+/* SUCCESS MESSAGE */
+
+.settings-card [role="status"] {
+    color: var(--settings-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* FOCUS ACCESSIBILITY */
+
+.settings-nav-item:focus-visible,
+.settings-action-btn:focus-visible,
+.settings-save-btn:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.3);
+    outline-offset: 3px;
+}
+
+/* DARK THEME */
+
+[data-theme="dark"] .student-settings {
+    --settings-text: #e2e8f0;
+    --settings-muted: #94a3b8;
+    --settings-border: #334155;
+    --settings-card: #172033;
+    --settings-background: #0f172a;
+}
+
+[data-theme="dark"] .settings-nav-item:hover,
+[data-theme="dark"] .settings-nav-item.active,
+[data-theme="dark"] .settings-action-btn.selected {
+    background: #1e3a5f;
+    color: #93c5fd;
+}
+
+[data-theme="dark"] .settings-nav-item {
+    color: var(--settings-muted);
+}
+
+[data-theme="dark"] .settings-nav-item.active {
+    color: #93c5fd;
+}
+
+[data-theme="dark"] .settings-action-btn {
+    background: var(--settings-card);
+    border-color: var(--settings-border);
+    color: var(--settings-text);
+}
+
+[data-theme="dark"] .settings-select {
+    background: #0f172a;
+    color: var(--settings-text);
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .student-settings {
+        padding: 28px 4%;
+    }
+
+    .settings-layout {
+        grid-template-columns: 210px minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .settings-card {
+        padding: 22px;
+    }
+
+    .settings-nav-item {
+        padding: 13px 10px;
+        font-size: 12px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+    .student-settings {
+        padding: 22px 16px;
+    }
+
+    .settings-page-header {
+        margin-bottom: 25px;
+    }
+
+    .settings-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .settings-sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .settings-nav-item {
+        justify-content: flex-start;
+        padding: 12px 9px;
+        font-size: 11px;
+    }
+
+    .settings-nav-item span {
+        font-size: 15px;
+    }
+
+    .settings-card {
+        padding: 19px 15px;
+    }
+
+    .setting-row {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 13px;
+        padding: 17px 0;
+    }
+
+    .setting-info {
+        flex-basis: 100%;
+    }
+
+    .settings-select {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .settings-save-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .settings-sidebar {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .student-settings *,
+    .student-settings *::before,
+    .student-settings *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

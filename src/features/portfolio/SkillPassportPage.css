@@ -1,0 +1,1528 @@
+/* =====================================================
+   ZENTRION SKILL OS - SKILL PASSPORT PAGE STYLES
+   Professional Academic Credential & Verifiable Competency Ledger
+   ===================================================== */
+
+.skill-passport-page {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding-bottom: 80px;
+}
+
+/* =====================================================
+   TOP NAVIGATION
+   ===================================================== */
+
+.passport-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+}
+
+.passport-navbar .nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.passport-navbar .logo-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.passport-navbar .logo-img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+.passport-navbar .nav-sep {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+}
+
+.passport-navbar .breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+}
+
+.passport-navbar .breadcrumbs button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.passport-navbar .breadcrumbs button:hover {
+  color: var(--primary);
+}
+
+.passport-navbar .breadcrumbs .current {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.passport-navbar .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-toggle-view,
+.btn-share-passport,
+.btn-print-passport,
+.btn-back {
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.18s ease;
+}
+
+.btn-toggle-view:hover,
+.btn-share-passport:hover,
+.btn-back:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--surface);
+  transform: translateY(-1px);
+}
+
+.btn-print-passport {
+  background: #0d9488;
+  color: #ffffff;
+  border-color: #0d9488;
+}
+
+.btn-print-passport:hover {
+  background: #0f766e;
+  border-color: #0f766e;
+  transform: translateY(-1px);
+}
+
+.btn-toggle-view.active {
+  background: rgba(13, 148, 136, 0.12);
+  color: #0d9488;
+  border-color: #0d9488;
+}
+
+/* Public Mode Banner */
+.public-mode-banner {
+  background: linear-gradient(90deg, rgba(13, 148, 136, 0.12), rgba(37, 99, 235, 0.12));
+  border-bottom: 1px solid rgba(13, 148, 136, 0.3);
+  padding: 10px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.public-mode-banner button {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text);
+}
+
+/* Toast */
+.passport-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 100;
+  animation: slideUp 0.25s ease-out;
+}
+
+.passport-toast button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* =====================================================
+   MAIN DOCUMENT CONTAINER
+   ===================================================== */
+
+.passport-document-container {
+  max-width: 1120px;
+  margin: 36px auto 0;
+  padding: 0 24px;
+}
+
+/* =====================================================
+   1. PASSPORT DOSSIER CARD (ACADEMIC HEADER)
+   ===================================================== */
+
+.passport-dossier-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--shadow);
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.dossier-top-strip {
+  background: linear-gradient(90deg, #0f766e 0%, #0d9488 40%, #2563eb 100%);
+  color: #ffffff;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dossier-institution {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.dossier-title {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.dossier-meta-block {
+  text-align: right;
+}
+
+.dossier-meta-block .meta-label {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.dossier-meta-block .meta-value {
+  display: block;
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.dossier-meta-block .meta-sub {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.dossier-profile-grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 28px;
+  padding: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.student-avatar-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-letter {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0d9488, #2563eb);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.35);
+}
+
+.status-seal-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.student-details-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.student-name-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.student-name-row h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.enrollment-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(13, 148, 136, 0.12);
+  color: #0d9488;
+  border: 1px solid rgba(13, 148, 136, 0.3);
+}
+
+.academic-meta-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.academic-chip {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.student-headline {
+  margin: 2px 0 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.student-bio {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.career-goals-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.career-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.career-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.career-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.social-links-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  font-size: 0.78rem;
+}
+
+.verified-social-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.verified-social-link:hover {
+  text-decoration: underline;
+}
+
+.verified-social-link.email {
+  color: var(--text-muted);
+}
+
+/* Cumulative Metrics Strip */
+.passport-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.metric-cell {
+  padding: 16px 20px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.metric-cell:last-child {
+  border-right: none;
+}
+
+.metric-cell .metric-icon {
+  font-size: 1.4rem;
+  color: #0d9488;
+}
+
+.metric-cell .metric-number {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.metric-cell .metric-caption {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* =====================================================
+   PASSPORT SECTIONS GENERIC STYLES
+   ===================================================== */
+
+.passport-section {
+  margin-bottom: 40px;
+}
+
+.section-title-bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.section-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.section-title-bar h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0 0 4px;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.section-description {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Competency Filter Chips */
+.competency-filter-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-chip:hover {
+  border-color: var(--primary);
+  color: var(--text);
+}
+
+.filter-chip.active {
+  background: #0d9488;
+  color: #ffffff;
+  border-color: #0d9488;
+}
+
+/* =====================================================
+   2. TECHNICAL COMPETENCY MATRIX
+   ===================================================== */
+
+.competencies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+
+.competency-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.18s ease;
+}
+
+.competency-card.is-verified {
+  border-left: 4px solid #0d9488;
+}
+
+.competency-card.is-in-progress {
+  border-left: 4px solid #f59e0b;
+}
+
+.comp-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.comp-domain {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.comp-name {
+  margin: 2px 0 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.verification-status-pill {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.verification-status-pill.verified {
+  background: rgba(13, 148, 136, 0.12);
+  color: #0d9488;
+  border: 1px solid rgba(13, 148, 136, 0.3);
+}
+
+.verification-status-pill.in-progress {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.comp-score-bar .score-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.comp-score-bar .score-track {
+  height: 6px;
+  background: var(--surface);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.comp-score-bar .score-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0d9488, #2563eb);
+  border-radius: 999px;
+}
+
+.comp-evidence-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.74rem;
+}
+
+.evidence-item .evidence-label {
+  font-weight: 700;
+  color: var(--text-muted);
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+.evidence-item .evidence-value {
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.evidence-item.footer-meta {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px dashed var(--border);
+  padding-top: 6px;
+  margin-top: 4px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* =====================================================
+   3. VERIFIED PROJECT MILESTONES
+   ===================================================== */
+
+.passport-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 18px;
+}
+
+.passport-project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.passport-project-card.verified {
+  border-top: 3px solid #0d9488;
+}
+
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.project-category-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.project-title {
+  margin: 2px 0 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.project-status-pill {
+  font-size: 0.66rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.project-status-pill.completed {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.project-status-pill.milestone-verified {
+  background: rgba(13, 148, 136, 0.12);
+  color: #0d9488;
+  border: 1px solid rgba(13, 148, 136, 0.3);
+}
+
+.project-status-pill.in-progress {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.project-meta-strip {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.project-tags-list {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.project-tag-pill {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.approved-deliverables-block {
+  background: rgba(13, 148, 136, 0.05);
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.deliverables-heading {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #0d9488;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.deliverables-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.deliverable-file-chip,
+.deliverable-link-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.deliverable-link-chip {
+  border-color: #0d9488;
+  color: #0d9488;
+}
+
+.project-nav-action {
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.btn-workspace-link {
+  font-family: inherit;
+  font-size: 0.74rem;
+  font-weight: 700;
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-workspace-link:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   4. CODING PRACTICE & ACHIEVEMENTS
+   ===================================================== */
+
+.coding-overview-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.coding-stat-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.coding-stat-item .stat-value {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.coding-stat-item .stat-label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.languages-breakdown-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.breakdown-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.language-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lang-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.lang-pill.java {
+  background: rgba(176, 114, 25, 0.12);
+  color: #b07219;
+  border: 1px solid rgba(176, 114, 25, 0.3);
+}
+
+.lang-pill.python {
+  background: rgba(53, 114, 165, 0.12);
+  color: #3572A5;
+  border: 1px solid rgba(53, 114, 165, 0.3);
+}
+
+.lang-pill.js {
+  background: rgba(241, 224, 90, 0.15);
+  color: #b45309;
+  border: 1px solid rgba(241, 224, 90, 0.4);
+}
+
+.recent-submissions-table-wrap {
+  overflow-x: auto;
+}
+
+.recent-submissions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  text-align: left;
+}
+
+.recent-submissions-table th {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.recent-submissions-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.status-badge-accepted {
+  font-weight: 700;
+  color: #059669;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+}
+
+/* =====================================================
+   5. FACULTY REVIEWS & EVIDENCE LEDGER
+   ===================================================== */
+
+.faculty-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 20px;
+}
+
+.faculty-review-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faculty-review-card.approved {
+  border-top: 3px solid #0d9488;
+}
+
+.faculty-review-card.revision {
+  border-top: 3px solid #f59e0b;
+}
+
+.review-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.review-project {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: block;
+}
+
+.review-title {
+  margin: 2px 0 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.review-status-badge {
+  font-size: 0.66rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.review-status-badge.approved {
+  background: rgba(13, 148, 136, 0.12);
+  color: #0d9488;
+  border: 1px solid rgba(13, 148, 136, 0.3);
+}
+
+.review-status-badge.revision {
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.review-desc {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.mentor-quote-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mentor-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mentor-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #0d9488;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.mentor-header strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--text);
+}
+
+.mentor-header span {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.mentor-comments {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.criteria-scores-list {
+  border-top: 1px dashed var(--border);
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.criteria-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
+
+.review-card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+}
+
+/* =====================================================
+   6. GITHUB REPOSITORIES
+   ===================================================== */
+
+.github-passport-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.github-account-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.github-account-info .gh-icon {
+  font-size: 1.8rem;
+}
+
+.github-account-info strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.github-account-info span {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.btn-github-external {
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-github-external:hover {
+  border-color: #0d9488;
+  color: #0d9488;
+}
+
+.linked-repos-table-wrap {
+  overflow-x: auto;
+}
+
+.linked-repos-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  text-align: left;
+}
+
+.linked-repos-table th {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.linked-repos-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.linked-repos-table .table-sub {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.tech-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.table-link-btn {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.74rem;
+}
+
+.table-link-btn:hover {
+  text-decoration: underline;
+}
+
+/* =====================================================
+   7. PLATFORM CERTIFICATES
+   ===================================================== */
+
+.certificates-passport-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+
+.passport-cert-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.cert-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cert-card-top .cert-icon {
+  font-size: 1.5rem;
+}
+
+.cert-status-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  margin-right: 6px;
+}
+
+.cert-id-badge {
+  font-family: monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.cert-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.cert-desc {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.cert-skills {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.cert-skill-tag {
+  font-size: 0.66rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--text-secondary);
+}
+
+.cert-footer-info {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+/* =====================================================
+   8. ACADEMIC SEAL FOOTER
+   ===================================================== */
+
+.passport-verification-seal-footer {
+  margin-top: 40px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.seal-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.seal-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 650px;
+}
+
+.seal-crest {
+  font-size: 2.2rem;
+}
+
+.seal-left strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.seal-left p {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.verification-code-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  text-align: right;
+}
+
+.verification-code-box .v-label {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.verification-code-box code {
+  display: block;
+  font-family: monospace;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 2px 0;
+}
+
+.verification-code-box .v-sub {
+  display: block;
+  font-size: 0.66rem;
+  color: var(--text-muted);
+}
+
+/* =====================================================
+   PRINT & A4 PDF EXPORT STYLES
+   ===================================================== */
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 10mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 11pt;
+  }
+
+  .skill-passport-page {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    padding-bottom: 0 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .passport-document-container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .passport-dossier-card,
+  .competency-card,
+  .passport-project-card,
+  .coding-overview-card,
+  .faculty-review-card,
+  .github-passport-box,
+  .passport-cert-card,
+  .passport-verification-seal-footer {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .dossier-top-strip {
+    background: #0f766e !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .avatar-letter {
+    background: #0d9488 !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .comp-score-bar .score-fill {
+    background: #0d9488 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .competencies-grid,
+  .passport-projects-grid,
+  .faculty-reviews-grid,
+  .certificates-passport-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .passport-section {
+    margin-bottom: 22px !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .passport-metrics-strip {
+    background: #f8fafc !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .status-badge-accepted,
+  .verification-status-pill.verified,
+  .project-status-pill.completed,
+  .review-status-badge.approved,
+  .cert-status-badge {
+    background: #ecfdf5 !important;
+    color: #047857 !important;
+    border: 1px solid #a7f3d0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN (TABLET & MOBILE)
+   ===================================================== */
+
+@media (max-width: 900px) {
+  .passport-metrics-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .coding-stat-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .passport-navbar {
+    padding: 12px 16px;
+  }
+
+  .dossier-profile-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .student-avatar-box {
+    margin-bottom: 10px;
+  }
+
+  .student-name-row,
+  .academic-meta-list,
+  .career-goals-wrap,
+  .social-links-row {
+    justify-content: center;
+  }
+
+  .passport-metrics-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .metric-cell {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .competencies-grid,
+  .passport-projects-grid,
+  .faculty-reviews-grid,
+  .certificates-passport-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seal-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .verification-code-box {
+    text-align: center;
+    width: 100%;
+  }
+}
+

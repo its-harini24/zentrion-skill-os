@@ -1,0 +1,435 @@
+/* =========================
+   STUDENT SETTINGS PAGE
+========================= */
+
+.student-settings {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding: 36px 0 70px;
+    color: var(--text);
+    animation: settingsFadeIn 0.35s ease;
+}
+
+@keyframes settingsFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.settings-page-header {
+    margin-bottom: 30px;
+}
+
+.settings-page-header h1 {
+    margin: 0 0 8px;
+    color: var(--text);
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.settings-page-header p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* =========================
+   SETTINGS LAYOUT
+========================= */
+
+.settings-layout {
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.settings-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--card);
+}
+
+.settings-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.84rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.settings-nav-item:hover,
+.settings-nav-item.active {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+/* =========================
+   SETTINGS CONTENT
+========================= */
+
+.settings-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.settings-card {
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--card);
+}
+
+.settings-card-header {
+    margin-bottom: 20px;
+}
+
+.settings-card-header h2 {
+    margin: 0 0 6px;
+    color: var(--text);
+    font-size: 1.05rem;
+    font-weight: 750;
+}
+
+.settings-card-header p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+/* =========================
+   SETTING ROWS
+========================= */
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.setting-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.setting-info {
+    min-width: 0;
+}
+
+.setting-info strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text);
+    font-size: 0.85rem;
+}
+
+.setting-info p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+/* =========================
+   SELECT INPUTS
+========================= */
+
+.settings-select {
+    min-width: 145px;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+    background: var(--surface);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.settings-select:focus {
+    border-color: var(--primary);
+}
+
+/* =========================
+   TOGGLE SWITCH
+========================= */
+
+.settings-switch {
+    position: relative;
+    width: 42px;
+    height: 23px;
+    flex-shrink: 0;
+}
+
+.settings-switch input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.settings-switch span {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: var(--border);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.settings-switch span::before {
+    content: "";
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 3px;
+    top: 3px;
+    border-radius: 50%;
+    background: white;
+    transition: transform 0.2s ease;
+}
+
+.settings-switch input:checked+span {
+    background: var(--primary);
+}
+
+.settings-switch input:checked+span::before {
+    transform: translateX(19px);
+}
+
+.settings-switch input:focus-visible+span {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.settings-action-btn {
+    padding: 9px 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 650;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.settings-action-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.settings-save-btn {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 9px;
+    background: var(--primary);
+    color: white;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.settings-save-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 760px) {
+    .student-settings {
+        padding-top: 25px;
+    }
+
+    .settings-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .settings-sidebar {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .settings-nav-item {
+        width: auto;
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    .settings-card {
+        padding: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .settings-page-header h1 {
+        font-size: 1.45rem;
+    }
+
+    .setting-row {
+        align-items: flex-start;
+    }
+
+    .settings-select {
+        min-width: 115px;
+        max-width: 130px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .student-settings,
+    .settings-nav-item,
+    .settings-switch span,
+    .settings-switch span::before,
+    .settings-save-btn {
+        animation: none;
+        transition: none;
+    }
+}
+
+.settings-action-btn.selected {
+    background: var(--primary-light);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* SETTINGS FORM CONTROLS */
+
+.settings-select {
+    width: 190px;
+    max-width: 100%;
+    padding: 11px 13px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    color: var(--text);
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.settings-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.settings-row input[type="checkbox"],
+.setting-row input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* SAVE PROFILE BUTTON */
+
+.settings-save-btn {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.settings-save-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.settings-save-btn:focus-visible,
+.settings-action-btn:focus-visible,
+.settings-select:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+/* PROFILE FORM */
+
+.settings-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.settings-content form .setting-row {
+    width: 100%;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    .setting-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .settings-select {
+        width: 100%;
+    }
+
+    .settings-save-btn {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .settings-select,
+    .settings-save-btn {
+        transition: none;
+    }
+}

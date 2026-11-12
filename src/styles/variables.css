@@ -1,0 +1,65 @@
+/* =====================================================
+   ZENTRION SKILL OS - DESIGN TOKENS & VARIABLES
+===================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* =========================
+   LIGHT THEME
+========================= */
+
+:root,
+[data-theme="light"] {
+  --primary: #0f766e;
+  --primary-dark: #0b625c;
+  --primary-light: #e6f4f3;
+
+  --blue: #2563eb;
+  --blue-light: #eaf1ff;
+
+  --background: #f5f9fa;
+  --surface: #ffffff;
+  --card: #ffffff;
+
+  --text: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+
+  --border: #e5e7eb;
+  --border-light: #edf0f0;
+
+  --nav-background: rgba(255, 255, 255, 0.92);
+  --shadow: rgba(15, 23, 42, 0.08);
+
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================
+   DARK THEME
+========================= */
+
+[data-theme="dark"] {
+  --primary: #5eead4;
+  --primary-dark: #7af3e2;
+  --primary-light: #163a37;
+
+  --blue: #93b4ff;
+  --blue-light: #1d2b3c;
+
+  --background: #0d1515;
+  --surface: #121d1c;
+  --card: #121d1c;
+
+  --text: #f1f7f5;
+  --text-secondary: #c7d6d2;
+  --text-muted: #91a6a1;
+
+  --border: #263936;
+  --border-light: #1d2b29;
+
+  --nav-background: rgba(13, 21, 21, 0.94);
+
+  --shadow: rgba(0, 0, 0, 0.3);
+}

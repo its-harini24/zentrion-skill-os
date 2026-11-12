@@ -1,0 +1,2586 @@
+/* =====================================================
+   AUTH PAGE
+===================================================== */
+
+.auth-page {
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 45% 55%;
+
+  background: var(--background);
+
+  color: var(--text);
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+/* =====================================================
+   LEFT 3D VISUAL
+===================================================== */
+
+.auth-visual {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 60px;
+
+  overflow: hidden;
+
+  perspective: 1400px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 99, 93, 0.98),
+      rgba(8, 75, 71, 0.98)
+    ),
+    url("/src/assets/zentrion-doodle.png");
+
+  background-size:
+    cover,
+    700px auto;
+
+  background-position:
+    center,
+    center;
+
+  background-repeat:
+    no-repeat,
+    repeat;
+
+  color: white;
+}
+
+
+/* Ambient lighting */
+
+.auth-visual::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -20%;
+
+  background:
+    radial-gradient(
+      circle at 25% 20%,
+      rgba(143, 255, 239, 0.16),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(255, 255, 255, 0.08),
+      transparent 28%
+    );
+
+  pointer-events: none;
+
+  animation:
+    ambientLight 8s ease-in-out infinite alternate;
+}
+
+
+/* =====================================================
+   THEME CONTROL
+===================================================== */
+
+.auth-theme-control {
+  position: absolute;
+
+  top: 28px;
+  right: 30px;
+
+  z-index: 50;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.auth-logo {
+  position: absolute;
+
+  top: 42px;
+  left: 60px;
+
+  z-index: 30;
+
+  font-size: 1.35rem;
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+
+  animation:
+    logoReveal 0.8s ease both;
+}
+
+.auth-logo span {
+  color: #9ee4db;
+}
+
+
+/* =====================================================
+   VISUAL SCENE
+===================================================== */
+
+.auth-visual-scene {
+  position: absolute;
+
+  left: 50%;
+  top: 46%;
+
+  width: 100%;
+  height: 520px;
+
+  transform:
+    translate(-50%, -50%);
+
+  z-index: 3;
+}
+
+
+/* =====================================================
+   AMBIENT WORKSPACE GLOW
+===================================================== */
+
+.workspace-glow {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 460px;
+  height: 300px;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(108, 236, 220, 0.22),
+      rgba(72, 199, 187, 0.08) 42%,
+      transparent 72%
+    );
+
+  filter: blur(22px);
+
+  animation:
+    workspaceGlow 5s ease-in-out infinite alternate;
+}
+
+
+/* =====================================================
+   DEVELOPER WORKSPACE
+===================================================== */
+
+.developer-workspace {
+  position: absolute;
+
+  left: 50%;
+  top: 48%;
+
+  width: 470px;
+  height: 390px;
+
+  transform:
+    translate(-50%, -50%)
+    rotateX(3deg)
+    rotateY(-5deg);
+
+  transform-style: preserve-3d;
+
+  animation:
+    workspaceFloat 5.5s ease-in-out infinite;
+
+  z-index: 8;
+}
+
+
+/* =====================================================
+   WORKSPACE SHADOW
+===================================================== */
+
+.workspace-shadow {
+  position: absolute;
+
+  left: 50%;
+  bottom: 10px;
+
+  width: 410px;
+  height: 80px;
+
+  transform:
+    translateX(-50%)
+    rotateX(70deg);
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.30);
+
+  filter: blur(20px);
+
+  animation:
+    shadowPulse 5.5s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   MONITOR WRAPPER
+===================================================== */
+
+.monitor-wrapper {
+  position: absolute;
+
+  left: 50%;
+  top: 5px;
+
+  width: 350px;
+  height: 255px;
+
+  transform:
+    translateX(-50%)
+    translateZ(55px);
+
+  transform-style: preserve-3d;
+}
+
+
+/* =====================================================
+   MONITOR
+===================================================== */
+
+.monitor {
+  position: relative;
+
+  width: 350px;
+  height: 220px;
+
+  padding: 8px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #303b3a,
+      #111918 65%,
+      #080d0c
+    );
+
+  box-shadow:
+    0 28px 45px rgba(0, 0, 0, 0.38),
+    inset 1px 1px 1px rgba(255, 255, 255, 0.16),
+    inset -2px -3px 4px rgba(0, 0, 0, 0.6);
+
+  transform-style: preserve-3d;
+
+  animation:
+    monitorTilt 7s ease-in-out infinite;
+}
+
+
+/* monitor depth */
+
+.monitor::before {
+  content: "";
+
+  position: absolute;
+
+  right: -11px;
+  top: 12px;
+
+  width: 11px;
+  height: 195px;
+
+  border-radius: 0 7px 7px 0;
+
+  background:
+    linear-gradient(
+      to right,
+      #101615,
+      #050807
+    );
+
+  transform:
+    skewY(-3deg)
+    translateZ(-1px);
+
+  transform-origin: left;
+}
+
+
+/* =====================================================
+   MONITOR BEZEL
+===================================================== */
+
+.monitor-bezel {
+  position: absolute;
+
+  left: 8px;
+  top: 7px;
+
+  right: 8px;
+  height: 22px;
+
+  z-index: 5;
+}
+
+
+/* camera */
+
+.monitor-camera {
+  position: absolute;
+
+  left: 50%;
+  top: 6px;
+
+  width: 5px;
+  height: 5px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 50%;
+
+  background: #182221;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 8px rgba(80, 225, 210, 0.45);
+}
+
+
+/* controls */
+
+.monitor-controls {
+  position: absolute;
+
+  right: 4px;
+  top: 3px;
+
+  display: flex;
+
+  gap: 4px;
+}
+
+.monitor-controls span {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #465351;
+}
+
+
+/* =====================================================
+   CODE SCREEN
+===================================================== */
+
+.code-screen {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0b1716,
+      #07110f
+    );
+
+  box-shadow:
+    inset 0 0 25px rgba(0, 0, 0, 0.75),
+    inset 0 0 2px rgba(145, 255, 241, 0.28);
+}
+
+
+/* screen glow */
+
+.code-screen::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 60% 35%,
+      rgba(56, 214, 194, 0.12),
+      transparent 45%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   SCREEN GRID
+===================================================== */
+
+.screen-grid {
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(120, 255, 238, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(120, 255, 238, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    18px 18px;
+
+  opacity: 0.7;
+}
+
+
+/* =====================================================
+   SCREEN SCAN
+===================================================== */
+
+.screen-scan {
+  position: absolute;
+
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  top: -5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(126, 255, 237, 0.7),
+      transparent
+    );
+
+  box-shadow:
+    0 0 18px rgba(92, 244, 225, 0.7);
+
+  z-index: 10;
+
+  animation:
+    screenScan 3.2s linear infinite;
+}
+
+
+/* =====================================================
+   SCREEN REFLECTION
+===================================================== */
+
+.screen-reflection {
+  position: absolute;
+
+  top: -50%;
+  left: -30%;
+
+  width: 35%;
+  height: 200%;
+
+  transform:
+    rotate(22deg);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.07),
+      transparent
+    );
+
+  animation:
+    screenReflection 6s ease-in-out infinite;
+
+  z-index: 9;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   EDITOR HEADER
+===================================================== */
+
+.editor-header {
+  position: relative;
+
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 11px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.06);
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  z-index: 4;
+}
+
+
+/* tabs */
+
+.editor-tabs {
+  display: flex;
+
+  gap: 14px;
+
+  font-size: 6px;
+
+  color:
+    rgba(255, 255, 255, 0.28);
+}
+
+.editor-tabs span {
+  position: relative;
+}
+
+.editor-tabs .active-tab {
+  color:
+    rgba(255, 255, 255, 0.75);
+}
+
+.editor-tabs .active-tab::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -9px;
+
+  height: 1px;
+
+  background: #68d9ca;
+}
+
+
+/* live status */
+
+.editor-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  font-size: 5px;
+
+  letter-spacing: 0.08em;
+
+  color:
+    rgba(148, 240, 227, 0.65);
+}
+
+.editor-status i {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #6ee1d2;
+
+  box-shadow:
+    0 0 7px #6ee1d2;
+
+  animation:
+    livePulse 1.3s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   CODE EDITOR
+===================================================== */
+
+.code-editor {
+  position: relative;
+
+  padding:
+    14px 12px 10px;
+
+  z-index: 3;
+}
+
+.code-row {
+  display: flex;
+  align-items: center;
+
+  height: 16px;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    monospace;
+
+  font-size: 7px;
+
+  white-space: nowrap;
+
+  opacity: 0;
+
+  animation:
+    codeAppear 0.5s ease forwards;
+}
+
+.code-row:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.code-row:nth-child(2) {
+  animation-delay: 0.55s;
+}
+
+.code-row:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.code-row:nth-child(4) {
+  animation-delay: 1.05s;
+}
+
+.code-row:nth-child(5) {
+  animation-delay: 1.3s;
+}
+
+.code-row:nth-child(6) {
+  animation-delay: 1.55s;
+}
+
+.code-row:nth-child(7) {
+  animation-delay: 1.8s;
+}
+
+.code-row:nth-child(8) {
+  animation-delay: 2.05s;
+}
+
+
+.line-number {
+  width: 23px;
+
+  color:
+    rgba(255, 255, 255, 0.18);
+}
+
+.code-blue {
+  color: #70c8ff;
+
+  margin-right: 4px;
+}
+
+.code-white {
+  color: #d9e8e5;
+
+  margin-right: 4px;
+}
+
+.code-soft {
+  color:
+    rgba(255, 255, 255, 0.45);
+
+  margin-right: 4px;
+}
+
+.code-green {
+  color: #72dfb6;
+
+  margin-right: 4px;
+}
+
+.code-yellow {
+  color: #e6ce83;
+
+  margin-right: 4px;
+}
+
+.code-purple {
+  color: #c6a8ed;
+
+  margin-right: 4px;
+}
+
+.indent {
+  padding-left: 12px;
+}
+
+.indent-more {
+  padding-left: 24px;
+}
+
+
+/* =====================================================
+   TYPING CURSOR
+===================================================== */
+
+.typing-line {
+  margin-left: 23px;
+
+  width: 4px;
+  height: 9px;
+
+  background: #7de8da;
+
+  box-shadow:
+    0 0 8px rgba(125, 232, 218, 0.65);
+
+  animation:
+    cursorBlink 0.85s steps(2) infinite;
+}
+
+
+/* =====================================================
+   EDITOR FOOTER
+===================================================== */
+
+.editor-footer {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 17px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 10px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.05);
+
+  background:
+    rgba(61, 172, 158, 0.07);
+
+  font-family: monospace;
+
+  font-size: 5px;
+
+  color:
+    rgba(255, 255, 255, 0.35);
+
+  z-index: 4;
+}
+
+.editor-footer strong {
+  margin-left: auto;
+
+  color:
+    rgba(116, 228, 205, 0.75);
+
+  font-weight: 500;
+}
+
+
+/* =====================================================
+   MONITOR BOTTOM
+===================================================== */
+
+.monitor-bottom {
+  position: absolute;
+
+  left: 50%;
+  bottom: -4px;
+
+  width: 300px;
+  height: 8px;
+
+  transform:
+    translateX(-50%)
+    translateZ(5px);
+
+  border-radius: 0 0 10px 10px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #252e2d,
+      #0b100f
+    );
+}
+
+
+/* monitor brand */
+
+.monitor-brand {
+  position: absolute;
+
+  left: 50%;
+  top: 2px;
+
+  transform:
+    translateX(-50%);
+
+  font-size: 5px;
+
+  font-weight: 800;
+
+  color:
+    rgba(150, 235, 224, 0.38);
+}
+
+
+/* =====================================================
+   MONITOR STAND
+===================================================== */
+
+.monitor-neck {
+  position: absolute;
+
+  left: 50%;
+  bottom: -28px;
+
+  width: 34px;
+  height: 30px;
+
+  transform:
+    translateX(-50%)
+    translateZ(2px);
+
+  background:
+    linear-gradient(
+      90deg,
+      #0b1110,
+      #394442,
+      #0b1110
+    );
+
+  border-radius: 2px;
+}
+
+
+/* =====================================================
+   MONITOR BASE
+===================================================== */
+
+.monitor-base {
+  position: absolute;
+
+  left: 50%;
+  bottom: -39px;
+
+  width: 105px;
+  height: 13px;
+
+  transform:
+    translateX(-50%)
+    translateZ(1px)
+    rotateX(55deg);
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #414c4a,
+      #111716
+    );
+
+  box-shadow:
+    0 7px 9px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================================
+   DESK
+===================================================== */
+
+.workspace-desk {
+  position: absolute;
+
+  left: 50%;
+  bottom: 15px;
+
+  width: 470px;
+  height: 115px;
+
+  transform:
+    translateX(-50%)
+    translateZ(20px);
+
+  transform-style: preserve-3d;
+}
+
+
+/* desk top */
+
+.desk-surface {
+  position: absolute;
+
+  top: 15px;
+  left: 0;
+
+  width: 100%;
+  height: 22px;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #45504e,
+      #202a28 55%,
+      #121817
+    );
+
+  transform:
+    rotateX(55deg);
+
+  transform-origin: top;
+
+  box-shadow:
+    0 9px 18px rgba(0, 0, 0, 0.32),
+    inset 0 1px rgba(255, 255, 255, 0.12);
+}
+
+
+/* desk front */
+
+.desk-front {
+  position: absolute;
+
+  top: 30px;
+  left: 15px;
+
+  width: 440px;
+  height: 85px;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #15201e,
+      #202b29 50%,
+      #111918
+    );
+
+  transform:
+    rotateX(-2deg);
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.05);
+}
+
+
+/* =====================================================
+   KEYBOARD
+===================================================== */
+
+.keyboard {
+  position: absolute;
+
+  left: 80px;
+  top: 32px;
+
+  width: 185px;
+  height: 50px;
+
+  padding: 7px 8px;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #333d3b,
+      #111716
+    );
+
+  transform:
+    rotateX(56deg)
+    rotateZ(-2deg)
+    translateZ(14px);
+
+  transform-origin: center;
+
+  box-shadow:
+    0 10px 14px rgba(0, 0, 0, 0.35),
+    inset 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+
+.keyboard-row {
+  display: flex;
+
+  gap: 3px;
+
+  margin-bottom: 4px;
+}
+
+.keyboard-row i {
+  display: block;
+
+  width: 11px;
+  height: 6px;
+
+  border-radius: 2px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #6d7b77,
+      #34403d
+    );
+
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.7);
+
+  animation:
+    keyGlow 4s ease-in-out infinite;
+}
+
+.keyboard-row:nth-child(2) i:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.keyboard-row:nth-child(3) i:nth-child(7) {
+  animation-delay: 0.8s;
+}
+
+
+/* =====================================================
+   MOUSE
+===================================================== */
+
+.computer-mouse {
+  position: absolute;
+
+  right: 100px;
+  top: 45px;
+
+  width: 31px;
+  height: 43px;
+
+  border-radius:
+    48% 48% 44% 44%;
+
+  background:
+    linear-gradient(
+      145deg,
+      #46514f,
+      #171e1d
+    );
+
+  transform:
+    rotateX(52deg)
+    rotateZ(5deg)
+    translateZ(15px);
+
+  box-shadow:
+    5px 8px 12px rgba(0, 0, 0, 0.35),
+    inset 1px 1px rgba(255, 255, 255, 0.12);
+}
+
+.computer-mouse span {
+  position: absolute;
+
+  top: 8px;
+  left: 50%;
+
+  width: 3px;
+  height: 8px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 2px;
+
+  background: #78ded0;
+
+  box-shadow:
+    0 0 7px rgba(120, 222, 208, 0.7);
+}
+
+
+/* =====================================================
+   COFFEE CUP
+===================================================== */
+
+.coffee-cup {
+  position: absolute;
+
+  left: 300px;
+  top: 48px;
+
+  width: 42px;
+  height: 55px;
+
+  transform:
+    translateZ(18px);
+
+  z-index: 8;
+}
+
+
+.coffee-body {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 36px;
+  height: 38px;
+
+  border-radius:
+    4px 4px 13px 13px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #d5ddd9,
+      #8f9d98,
+      #dce5e1
+    );
+
+  box-shadow:
+    4px 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.coffee-liquid {
+  position: absolute;
+
+  top: -4px;
+  left: 2px;
+
+  width: 32px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      #30231c,
+      #17110d
+    );
+
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+
+.coffee-handle {
+  position: absolute;
+
+  right: 0;
+  top: 10px;
+
+  width: 15px;
+  height: 20px;
+
+  border: 5px solid #9ca9a5;
+
+  border-left: none;
+
+  border-radius:
+    0 10px 10px 0;
+}
+
+
+/* =====================================================
+   COFFEE STEAM
+===================================================== */
+
+.coffee-steam {
+  position: absolute;
+
+  bottom: 40px;
+
+  width: 7px;
+  height: 25px;
+
+  border-left:
+    1px solid rgba(255, 255, 255, 0.22);
+
+  border-radius: 50%;
+
+  filter: blur(1px);
+
+  opacity: 0;
+
+  animation:
+    steamRise 3s ease-in-out infinite;
+}
+
+.steam-one {
+  left: 12px;
+}
+
+.steam-two {
+  left: 23px;
+
+  animation-delay: 1.2s;
+}
+
+
+/* =====================================================
+   PLANT
+===================================================== */
+
+.desk-plant {
+  position: absolute;
+
+  right: 28px;
+  top: 15px;
+
+  width: 50px;
+  height: 80px;
+
+  transform:
+    translateZ(15px);
+
+  z-index: 7;
+}
+
+
+.plant-pot {
+  position: absolute;
+
+  bottom: 0;
+  left: 10px;
+
+  width: 30px;
+  height: 27px;
+
+  border-radius:
+    3px 3px 9px 9px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #65726e,
+      #313b38
+    );
+
+  box-shadow:
+    3px 7px 10px rgba(0, 0, 0, 0.35);
+}
+
+
+.plant-leaf {
+  position: absolute;
+
+  bottom: 22px;
+  left: 23px;
+
+  width: 10px;
+  height: 39px;
+
+  border-radius:
+    100% 0 100% 0;
+
+  transform-origin: bottom;
+
+  background:
+    linear-gradient(
+      145deg,
+      #8cd6c5,
+      #277a70
+    );
+
+  animation:
+    leafMove 4s ease-in-out infinite;
+}
+
+.leaf-one {
+  transform:
+    rotate(-32deg);
+}
+
+.leaf-two {
+  transform:
+    rotate(5deg);
+
+  animation-delay: 0.5s;
+}
+
+.leaf-three {
+  transform:
+    rotate(36deg);
+
+  animation-delay: 1s;
+}
+
+
+/* =====================================================
+   FLOOR SHADOW
+===================================================== */
+
+.workspace-floor-shadow {
+  position: absolute;
+
+  left: 50%;
+  top: 77%;
+
+  width: 470px;
+  height: 75px;
+
+  transform:
+    translateX(-50%)
+    rotateX(65deg);
+
+  border-radius: 50%;
+
+  background:
+    rgba(0, 0, 0, 0.22);
+
+  filter: blur(18px);
+
+  animation:
+    floorShadow 5.5s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   FLOATING CODE OBJECTS
+===================================================== */
+
+.floating-code {
+  position: absolute;
+
+  z-index: 15;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 72px;
+  height: 72px;
+
+  border:
+    1px solid rgba(174, 255, 245, 0.20);
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.13),
+      rgba(255, 255, 255, 0.035)
+    );
+
+  backdrop-filter:
+    blur(12px);
+
+  box-shadow:
+    0 18px 30px rgba(0, 0, 0, 0.22),
+    inset 0 1px rgba(255, 255, 255, 0.15);
+
+  transform-style: preserve-3d;
+}
+
+.floating-code span {
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    monospace;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  color: #b4fff3;
+
+  text-shadow:
+    0 0 14px rgba(134, 247, 228, 0.55);
+}
+
+.floating-code small {
+  margin-top: 4px;
+
+  font-size: 5px;
+
+  letter-spacing: 0.13em;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+}
+
+
+.floating-code-one {
+  left: 9%;
+  top: 25%;
+
+  transform:
+    rotateY(18deg)
+    rotateZ(-8deg);
+
+  animation:
+    floatingObjectOne 5s ease-in-out infinite;
+}
+
+.floating-code-two {
+  right: 9%;
+  top: 31%;
+
+  transform:
+    rotateY(-20deg)
+    rotateZ(7deg);
+
+  animation:
+    floatingObjectTwo 6s ease-in-out infinite;
+}
+
+.floating-code-three {
+  right: 15%;
+  bottom: 18%;
+
+  transform:
+    rotateY(-12deg)
+    rotateZ(-5deg)
+    scale(0.85);
+
+  animation:
+    floatingObjectThree 5.5s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+.workspace-particle {
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #9ef5e7;
+
+  box-shadow:
+    0 0 12px rgba(150, 255, 239, 0.8);
+
+  z-index: 2;
+
+  animation:
+    particleFloat 5s ease-in-out infinite;
+}
+
+.particle-1 {
+  left: 14%;
+  top: 38%;
+}
+
+.particle-2 {
+  left: 76%;
+  top: 18%;
+
+  animation-delay: 1s;
+}
+
+.particle-3 {
+  left: 84%;
+  top: 61%;
+
+  animation-delay: 2s;
+}
+
+.particle-4 {
+  left: 24%;
+  top: 72%;
+
+  animation-delay: 3s;
+}
+
+.particle-5 {
+  left: 68%;
+  top: 78%;
+
+  animation-delay: 1.5s;
+}
+
+
+/* =====================================================
+   SCENE CAPTION
+===================================================== */
+
+.scene-caption {
+  position: absolute;
+
+  left: 50%;
+  bottom: 18px;
+
+  transform:
+    translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  white-space: nowrap;
+
+  z-index: 20;
+}
+
+.scene-caption span {
+  font-size: 6px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+
+  color:
+    rgba(255, 255, 255, 0.48);
+}
+
+.scene-caption div {
+  width: 28px;
+  height: 1px;
+
+  margin:
+    0 10px;
+
+  background:
+    rgba(255, 255, 255, 0.22);
+}
+
+
+/* =====================================================
+   LEFT COPY
+===================================================== */
+
+.auth-visual-copy {
+  position: absolute;
+
+  left: 60px;
+  bottom: 58px;
+
+  z-index: 30;
+
+  width: 390px;
+}
+
+.auth-visual-copy > p {
+  margin-bottom: 13px;
+
+  font-size: 0.58rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+.auth-visual-copy h1 {
+  margin: 0;
+
+  font-size:
+    clamp(2.7rem, 4vw, 4.2rem);
+
+  line-height: 0.94;
+
+  letter-spacing: -0.07em;
+
+  font-weight: 800;
+}
+
+.auth-visual-copy h1 span {
+  color: #9ee4db;
+}
+
+.auth-visual-description {
+  max-width: 370px;
+
+  margin-top: 20px;
+
+  color:
+    rgba(255, 255, 255, 0.67);
+
+  font-size: 0.72rem;
+
+  line-height: 1.75;
+}
+
+
+/* =====================================================
+   RIGHT FORM SIDE
+===================================================== */
+
+.auth-form-side {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px;
+
+  background: var(--background);
+
+  overflow: hidden;
+}
+
+
+.auth-form-side::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image:
+    url("/src/assets/zentrion-doodle.png");
+
+  background-size: 850px auto;
+  background-position: center;
+  background-repeat: repeat;
+
+  opacity: 0.08;
+
+  pointer-events: none;
+}
+
+
+[data-theme="dark"] .auth-form-side::before {
+  opacity: 0.13;
+
+  filter:
+    invert(1)
+    brightness(0.65);
+}
+
+
+/* =====================================================
+   FORM CONTAINER
+===================================================== */
+
+.auth-form-container {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  max-width: 390px;
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.auth-back {
+  margin-bottom: 45px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--text-muted);
+
+  font-family: inherit;
+
+  font-size: 0.67rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease;
+}
+
+.auth-back:hover {
+  color: var(--primary);
+}
+
+
+/* =====================================================
+   AUTH HEADING
+===================================================== */
+
+.auth-heading {
+  margin-bottom: 30px;
+}
+
+.auth-heading > p {
+  margin-bottom: 9px;
+
+  color: var(--primary);
+
+  font-size: 0.6rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.auth-heading h2 {
+  margin: 0 0 7px;
+
+  color: var(--text);
+
+  font-size: 2rem;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.045em;
+}
+
+.auth-heading span {
+  color: var(--text-muted);
+
+  font-size: 0.72rem;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.auth-form-container form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 19px;
+}
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.form-group label {
+  color: var(--text-secondary);
+
+  font-size: 0.64rem;
+
+  font-weight: 700;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius: 9px;
+
+  outline: none;
+
+  background: var(--card);
+
+  color: var(--text);
+
+  font-family: inherit;
+
+  font-size: 0.7rem;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #a3adaa;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(15, 118, 110, 0.08);
+}
+
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+.password-label {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.password-label button {
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--primary);
+
+  font-family: inherit;
+
+  font-size: 0.59rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   SELECT
+===================================================== */
+
+.form-group select {
+  cursor: pointer;
+
+  appearance: auto;
+}
+
+
+/* =====================================================
+   SUBMIT
+===================================================== */
+
+.auth-submit {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 5px;
+
+  padding: 13px 18px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: var(--primary);
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.auth-submit:hover {
+  background: #0d665f;
+
+  transform:
+    translateY(-1px);
+}
+
+.auth-submit span {
+  font-size: 0.85rem;
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.auth-divider {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 25px 0 22px;
+
+  color: #9ba5a2;
+
+  font-size: 0.58rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background: var(--border);
+}
+
+.auth-divider span {
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   SIGNUP
+===================================================== */
+
+.auth-form-container .auth-signup {
+  margin-top: 22px;
+
+  padding: 0;
+
+  background: transparent !important;
+
+  border: none !important;
+
+  box-shadow: none !important;
+
+  text-align: center;
+
+  color: var(--text-muted);
+
+  font-size: 0.67rem;
+
+  line-height: 1.6;
+}
+
+.auth-form-container .auth-signup button {
+  margin-left: 7px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent !important;
+
+  box-shadow: none !important;
+
+  color: var(--primary);
+
+  font-family: inherit;
+
+  font-size: inherit;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+[data-theme="dark"] .auth-page {
+  background: #101716;
+}
+
+[data-theme="dark"] .auth-form-side {
+  background: #101716;
+}
+
+[data-theme="dark"] .auth-heading h2 {
+  color: #edf3f1;
+}
+
+[data-theme="dark"] .auth-heading span {
+  color: #899591;
+}
+
+[data-theme="dark"] .auth-heading > p {
+  color: #55bdb1;
+}
+
+[data-theme="dark"] .form-group label {
+  color: #bdc8c4;
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select {
+  background: #151e1d;
+
+  border-color: #2d3936;
+
+  color: #e4ece9;
+}
+
+[data-theme="dark"] .form-group input::placeholder {
+  color: #697672;
+}
+
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group select:focus {
+  border-color: #4caea3;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(76, 174, 163, 0.1);
+}
+
+[data-theme="dark"] .auth-back {
+  color: #899591;
+}
+
+[data-theme="dark"] .auth-back:hover {
+  color: #55bdb1;
+}
+
+[data-theme="dark"] .password-label button,
+[data-theme="dark"] .auth-signup button {
+  color: #55bdb1;
+}
+
+[data-theme="dark"] .auth-divider {
+  color: #6f7c78;
+}
+
+[data-theme="dark"] .auth-signup {
+  color: #899591;
+}
+
+
+/* =====================================================
+   3D ANIMATIONS
+===================================================== */
+
+
+/* Overall scene */
+
+@keyframes workspaceFloat {
+
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      rotateX(3deg)
+      rotateY(-5deg)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      rotateX(1deg)
+      rotateY(5deg)
+      translateY(-13px);
+  }
+}
+
+
+/* Monitor subtle 3D tilt */
+
+@keyframes monitorTilt {
+
+  0%,
+  100% {
+    transform:
+      rotateY(-1.5deg)
+      rotateX(0.5deg);
+  }
+
+  50% {
+    transform:
+      rotateY(2.5deg)
+      rotateX(-1deg);
+  }
+}
+
+
+/* Ambient light */
+
+@keyframes ambientLight {
+
+  0% {
+    transform:
+      translate3d(-2%, -1%, 0)
+      scale(1);
+  }
+
+  100% {
+    transform:
+      translate3d(3%, 2%, 0)
+      scale(1.08);
+  }
+}
+
+
+/* Workspace glow */
+
+@keyframes workspaceGlow {
+
+  0% {
+    opacity: 0.65;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.92);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.08);
+  }
+}
+
+
+/* Floor shadow */
+
+@keyframes floorShadow {
+
+  0%,
+  100% {
+    opacity: 0.45;
+
+    transform:
+      translateX(-50%)
+      rotateX(65deg)
+      scale(0.94);
+  }
+
+  50% {
+    opacity: 0.25;
+
+    transform:
+      translateX(-50%)
+      rotateX(65deg)
+      scale(1.05);
+  }
+}
+
+
+/* Screen scanning */
+
+@keyframes screenScan {
+
+  0% {
+    top: -5px;
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 0.8;
+  }
+
+  100% {
+    top: 220px;
+
+    opacity: 0;
+  }
+}
+
+
+/* Screen reflection */
+
+@keyframes screenReflection {
+
+  0% {
+    left: -45%;
+  }
+
+  55% {
+    left: 120%;
+  }
+
+  100% {
+    left: 120%;
+  }
+}
+
+
+/* Code appearing */
+
+@keyframes codeAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(-8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+}
+
+
+/* Cursor */
+
+@keyframes cursorBlink {
+
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* Live dot */
+
+@keyframes livePulse {
+
+  0%,
+  100% {
+    opacity: 0.45;
+
+    transform:
+      scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1.3);
+  }
+}
+
+
+/* Keyboard */
+
+@keyframes keyGlow {
+
+  0%,
+  80%,
+  100% {
+    box-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.7);
+  }
+
+  85% {
+    box-shadow:
+      0 0 7px rgba(107, 224, 207, 0.38);
+  }
+}
+
+
+/* Coffee steam */
+
+@keyframes steamRise {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(5px)
+      scaleX(0.8);
+  }
+
+  25% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translateY(-24px)
+      translateX(4px)
+      scaleX(1.2);
+  }
+}
+
+
+/* Plant */
+
+@keyframes leafMove {
+
+  0%,
+  100% {
+    margin-left: 0;
+  }
+
+  50% {
+    margin-left: 2px;
+  }
+}
+
+
+/* Floating object 1 */
+
+@keyframes floatingObjectOne {
+
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 45px)
+      rotateY(18deg)
+      rotateZ(-8deg);
+  }
+
+  50% {
+    transform:
+      translate3d(7px, -17px, 75px)
+      rotateY(28deg)
+      rotateZ(-4deg);
+  }
+}
+
+
+/* Floating object 2 */
+
+@keyframes floatingObjectTwo {
+
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 40px)
+      rotateY(-20deg)
+      rotateZ(7deg);
+  }
+
+  50% {
+    transform:
+      translate3d(-8px, -14px, 80px)
+      rotateY(-30deg)
+      rotateZ(11deg);
+  }
+}
+
+
+/* Floating object 3 */
+
+@keyframes floatingObjectThree {
+
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 30px)
+      rotateY(-12deg)
+      rotateZ(-5deg)
+      scale(0.85);
+  }
+
+  50% {
+    transform:
+      translate3d(8px, -12px, 65px)
+      rotateY(-20deg)
+      rotateZ(-1deg)
+      scale(0.88);
+  }
+}
+
+
+/* Particles */
+
+@keyframes particleFloat {
+
+  0%,
+  100% {
+    opacity: 0.25;
+
+    transform:
+      translate3d(0, 0, 0)
+      scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translate3d(5px, -18px, 20px)
+      scale(1.25);
+  }
+}
+
+
+/* Logo entrance */
+
+@keyframes logoReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .workspace-particle,
+  .floating-code,
+  .developer-workspace,
+  .workspace-floor-shadow,
+  .workspace-glow,
+  .screen-scan,
+  .screen-reflection,
+  .coffee-steam,
+  .desk-plant,
+  .keyboard-row i,
+  .monitor,
+  .auth-logo,
+  .auth-visual::before {
+    animation: none;
+  }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1100px) {
+
+  .auth-page {
+    grid-template-columns: 42% 58%;
+  }
+
+  .auth-visual {
+    padding: 40px;
+  }
+
+  .auth-logo {
+    left: 40px;
+  }
+
+  .auth-visual-copy {
+    left: 40px;
+  }
+
+  .developer-workspace {
+    transform:
+      translate(-50%, -50%)
+      scale(0.86);
+  }
+
+  .floating-code-one {
+    left: 4%;
+  }
+
+  .floating-code-two {
+    right: 4%;
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-visual {
+    display: none;
+  }
+
+  .auth-form-side {
+    min-height: 100vh;
+
+    padding:
+      80px 30px 40px;
+  }
+
+  .auth-theme-control {
+    top: 25px;
+    right: 25px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .auth-form-side {
+    padding:
+      75px 22px 35px;
+  }
+
+  .auth-form-container {
+    max-width: 100%;
+  }
+
+  .auth-back {
+    margin-bottom: 35px;
+  }
+
+  .auth-heading h2 {
+    font-size: 1.75rem;
+  }
+
+}
+/* Reduce logo size on the student login page */
+.auth-page .auth-visual img {
+  max-width: 110px;
+  height: auto;
+  object-fit: contain;
+}
+.auth-page .auth-visual img {
+  max-width: 110px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
